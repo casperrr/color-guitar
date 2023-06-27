@@ -1,6 +1,13 @@
 
 *{
     background-color: #1b1b1b;
+    color: #ffffff;
     padding: 0;
     margin: 0;
+}
+
+.canvas{
+    border-color: #ffffff;
+    border: 2px;
+    border-style:outset;
 }
