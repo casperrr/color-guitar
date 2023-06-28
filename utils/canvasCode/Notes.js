@@ -10,12 +10,22 @@ export default class Note{
         // this.natural;
         this.color = "hsl("+deg+", 100%, 43%)";
         this.canvas = canvas;
+        this.shape = (noteNumber+1)%2 == 0 ? 0 : 1;
     }
 
     drawNote(c,x,y,w,h) {
-        
+
+        //draw colour 
         c.fillStyle = this.color;
-        c.fillRect(x,y,w,h);
+        if(this.shape == 1){
+            c.fillRect(x,y,w,h);
+        }else{
+            c.beginPath();
+            c.arc(x+w/2,y+w/2,w/2,0,Math.PI*2);
+            c.fill();
+        }
+
+        //Draw note text
         c.font = `${this.canvas.width*0.06}px sans-serif`;
         c.textAlign = 'center';
         c.textBaseline = 'middle';
