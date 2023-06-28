@@ -33,18 +33,19 @@ let oneDAllNotes = [
 ];
 export default class Note{
 
-    constructor(noteNumber,deg) {
+    constructor(noteNumber,deg,canvas) {
         this.noteNumber = noteNumber;
         this.noteName = oneDAllNotes[noteNumber];
         // this.natural;
-        this.color = "hsl("+deg+", 100%, 50%)";
+        this.color = "hsl("+deg+", 100%, 43%)";
+        this.canvas = canvas;
     }
 
     drawNote(c,x,y,w,h) {
         
         c.fillStyle = this.color;
         c.fillRect(x,y,w,h);
-        c.font = '40px sans-serif';
+        c.font = `${this.canvas.width*0.06}px sans-serif`;
         c.textAlign = 'center';
         c.textBaseline = 'middle';
         c.fillStyle = '#ffffff';
