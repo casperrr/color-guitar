@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from 'next/dynamic';
 import useCanvas from '@/components/Canvas/js/useCanvas';
 import React from 'react';
 
@@ -27,10 +26,7 @@ i need to have some code that runs before the code is send to the client so this
 
 const Canvas = ({ instance }) =>{
 
-    // const { draw } = props;
     const canvasRef = useCanvas({ instance });
-    // const code = 'CanvasCode';
-    // const Canvas = dynamic(() => import(`@/utils/canvasCode/${code}.js`).then((module) => module.drawOnCanvas))
 
     return ( 
         <canvas ref={canvasRef} className='canvas'/>
