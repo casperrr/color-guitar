@@ -2,10 +2,10 @@
 // import { FC } from 'react'
 import Canvas from "@/components/Canvas/Canvas";
 import ChromaticCircle from "@/components/ChromaticCircle/ChromaticCircle";
-import CircleOfFiths from "@/components/CircleOfFiths";
+import CircleOfFiths from "@/components/CircleOfFiths/CircleOfFiths";
 import dynamic from "next/dynamic";
 
-const test = dynamic(() => import("@/components/CircleOfFiths"),{ssr:false});
+const test = dynamic(() => import("@/components/CircleOfFiths/CircleOfFiths"),{ssr:false});
 
 
 const page = () => {
