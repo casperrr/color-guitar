@@ -1,7 +1,8 @@
-// "use client";
+"use client";
 
-import { drawOnCanvas } from '@/utils/canvasCode/CanvasCode';
-import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import useCanvas from './useCanvas';
+import React from 'react';
 
 /*
 ♥ We need to be able to pass something into the canvas component.
@@ -18,22 +19,18 @@ man an animation for the two circles that  starts with the circle of fiths and t
 
 is there a way to get the parent name the component is used in so I can use that to get the js.
 
+i need to have some code that runs before the code is send to the client so this code needs to be on the server side that can choose the right file to send to the client depending on where the canvas component is used. It will just send the right files over and all the js will run client side but deciding what file to send to the user will be done serverside.
+
 */
 
 
 
-const Canvas = ({ canvasCode }) => {
-    const canvasRef = useRef(null);
+const Canvas = ({ instance }) =>{
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-
-        console.log(canvasCode)
-        drawOnCanvas(canvas, context);
-        // canvasCode(canvas,context);
-
-    }, [canvasCode]);
+    // const { draw } = props;
+    const canvasRef = useCanvas({ instance });
+    // const code = 'CanvasCode';
+    // const Canvas = dynamic(() => import(`@/utils/canvasCode/${code}.js`).then((module) => module.drawOnCanvas))
 
     return ( 
         <canvas ref={canvasRef} className='canvas'/>
