@@ -1,4 +1,4 @@
-import CircleOfFiths from './CircleOfFiths';
+import CircleOfFiths from '@/components/CircleOfFiths/js/CircleOfFiths';
 
 export function drawOnCanvas(canvas, c){
 
