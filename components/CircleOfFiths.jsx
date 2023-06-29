@@ -1,7 +1,7 @@
 // "use server";
 
 import React from 'react'
-import Canvas from '@/components/Canvas'
+import Canvas from '@/components/Canvas/Canvas'
 import { drawOnCanvas } from '@/utils/canvasCode/CanvasCode';
 import dynamic from 'next/dynamic';
 

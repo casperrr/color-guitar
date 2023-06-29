@@ -1,6 +1,6 @@
 
 // import { FC } from 'react'
-import Canvas from "@/components/Canvas";
+import Canvas from "@/components/Canvas/Canvas";
 import ChromaticCircle from "@/components/ChromaticCircle";
 import CircleOfFiths from "@/components/CircleOfFiths";
 import dynamic from "next/dynamic";
