@@ -1,7 +1,19 @@
 "use client";
 
 import useCanvas from '@/components/Canvas/js/useCanvas';
+// import { handleCanvasClick } from '@/utils/canvasCode/CanvasCode';
 import React from 'react';
+
+const Canvas = ({ instance }) =>{
+
+    const canvasRef = useCanvas({ instance });
+
+    return ( 
+        <canvas ref={canvasRef} className='canvas' />
+    );
+};
+
+export default Canvas;
 
 /*
 ♥ We need to be able to pass something into the canvas component.
@@ -21,16 +33,3 @@ is there a way to get the parent name the component is used in so I can use that
 i need to have some code that runs before the code is send to the client so this code needs to be on the server side that can choose the right file to send to the client depending on where the canvas component is used. It will just send the right files over and all the js will run client side but deciding what file to send to the user will be done serverside.
 
 */
-
-
-
-const Canvas = ({ instance }) =>{
-
-    const canvasRef = useCanvas({ instance });
-
-    return ( 
-        <canvas ref={canvasRef} className='canvas'/>
-    );
-};
-
-export default Canvas;

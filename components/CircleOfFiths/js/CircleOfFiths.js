@@ -27,6 +27,7 @@ export default class CircleOfFiths{
     }
 
     animateToChromatic(c){
+        // Using lerp gives only 1 way easing.
         let otherRad = this.radius;
         let animationLoop = setInterval(()=>{
             
@@ -37,6 +38,29 @@ export default class CircleOfFiths{
                 clearInterval(animationLoop);
             }
         },10);
+    }
+
+    animateToChromaticV2(c){
+        // Using cos to animate gives ease in and out.
+        let otherRad = this.radius;
+        let angle = 0;
+        let n = 50;
+        let increment = (Math.PI)/n;
+        // for(let i = 0; i < n; i++){
+        //     angle += increment;
+        //     // console.log(angle);
+        // }
+        let animationLoop = setInterval(() => {
+            this.drawCircle(c,otherRad);
+            angle += increment;
+            otherRad = Math.cos(angle)*this.radius;
+            // console.log(otherRad);
+            if(-this.radius == Math.floor(otherRad)){
+                console.log("done");
+                clearInterval(animationLoop);
+            }
+        },30);
+
     }
 
 
