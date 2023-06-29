@@ -18,12 +18,16 @@ let oneDAllNotes = [
             //draw colour 
             c.fillStyle = this.color;
             if(this.shape == 1){
-                c.fillRect(x,y,w,h);
+                c.beginPath();
+                c.rect(x,y,w,h);
             }else{
                 c.beginPath();
                 c.arc(x+w/2,y+w/2,w/2,0,Math.PI*2);
-                c.fill();
             }
+            c.fill();
+            c.lineWidth = 2;
+            c.strokeStyle = '#000000';
+            c.stroke();
     
             //Draw note text
             c.font = `${this.canvas.width*0.06}px sans-serif`;

@@ -8,12 +8,7 @@ export default class CircleOfFiths{
         this.canvasWidth = 400;
         this.radius = this.canvasWidth*0.375;
         this.noteSize = this.canvasWidth*0.1125;
-        let index = 0;//C note
-        for(let i = 0; i < 12; i++){
-            let deg = 360/11*i;
-            this.notes.push(new Note(index,deg,canvas));
-            index = ((index-5)+12)%12;
-        }
+        
         this.#init();
     }
 
@@ -50,9 +45,14 @@ export default class CircleOfFiths{
     }
 
     #init(){
-        this.lineWidth = 2;
-        this.strokeStyle = '#000000';
         this.canvas.width = this.canvasWidth;
         this.canvas.height = this.canvasWidth;
+
+        let index = 0;//C note
+        for(let i = 0; i < 12; i++){
+            let deg = 360/11*i;
+            this.notes.push(new Note(index,deg,this.canvas));
+            index = ((index-5)+12)%12;
+        }
     }
 }
