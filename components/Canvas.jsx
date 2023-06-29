@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import useCanvas from './useCanvas';
+import useCanvas from '@/components/Canvas/js/useCanvas';
 import React from 'react';
 
 /*
