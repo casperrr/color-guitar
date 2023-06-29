@@ -10,6 +10,7 @@ let oneDAllNotes = [
             // this.natural;
             this.color = "hsl("+deg+", 100%, 43%)";
             this.canvas = canvas;
+            // 0 = Square, 1 = Circle
             this.shape = (noteNumber+1)%2 == 0 ? 0 : 1;
         }
     
