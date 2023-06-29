@@ -5,7 +5,7 @@ const ChromaticCircle = () => {
   return (
     <div className='canvas_container'>
         <h3>Chromatic Circle</h3>
-        <Canvas instance={"CanvasCode"}/>
+        <Canvas instance={"chromaticCircleCode"}/>
     </div>
   )
 }

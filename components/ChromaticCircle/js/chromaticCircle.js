@@ -1,8 +1,10 @@
 import CircleOfFiths from "@/components/CircleOfFiths/js/CircleOfFiths";
+import Note from '@/utils/canvasCode/Note'
 
 export default class ChromaticCircle extends CircleOfFiths {
     constructor(canvas){
         super(canvas);
+        this.#init();
     }
 
     #init(){

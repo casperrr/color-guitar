@@ -13,6 +13,3 @@ export function drawOnCanvas(canvas, c){
 
 }
 
-export function test(canvas,c){
-
-}
