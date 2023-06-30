@@ -9,9 +9,9 @@ export default class FretBody{
             height:0.95*this.canvasDim.y
         };
         this.fretMarkers = [1,3,5,7,9,12];
-        this.matrix = [];
+        this.fretArray = [];
 
-        // initialise matrix with an array of objects that contain the position of where to draw and stuff like frets and fretmarker that call like functions with draw
+        // initialise.fretArray with an array of objects that contain the position of where to draw and stuff like frets and fretmarker that call like functions with draw
         
 
     }
@@ -22,14 +22,14 @@ export default class FretBody{
 
         let interval = (width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
         for(let i = 0; i < this.fretNum; i++){
-            this.matrix[i] = this.addFret(c,interval*(i)+(this.canvasDim.x-this.fretboardDim.width),interval*(1+i)-interval/2,
+            this.fretArray[i] = this.addFret(c,interval*(i)+(this.canvasDim.x-this.fretboardDim.width),interval*(1+i)-interval/2,
             i+1);
             // this.addFret(c,interval*(1+i),interval*(1+i)-interval/2)
                 
             
         }
 
-        // console.log(this.matrix)
+        // console.log(this.fretArray)
 
 
         c.strokeStyle = '#ffffff';
@@ -58,7 +58,6 @@ export default class FretBody{
             c.lineWidth=1;
             c.closePath();
             c.stroke();
-            
         }
 
         return {
@@ -72,6 +71,6 @@ export default class FretBody{
 }
 
 /*
-Could have either a matrix storing like positions that I can like use to position everything.
+Could have either a.fretArray storing like positions that I can like use to position everything.
 I can just work out the maths and distance on the spot but wont be able to as easily chang stuff .
 */
