@@ -21,8 +21,11 @@ export default class FretBody{
 
         let interval = (width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
         for(let i = 0; i < this.fretNum; i++){
-            this.fretArray[i] = this.addFret(c,interval*(i)+(this.canvasDim.x-this.fretboardDim.width),interval*(1+i)-interval/2,
-            i+1);
+            this.fretArray[i] = this.addFret(c,
+                interval*(i)+(this.canvasDim.x-this.fretboardDim.width),
+                (interval*(i)+(interval/4))+(this.canvasDim.x-this.fretboardDim.width),
+                i+1
+                );
             // this.addFret(c,interval*(1+i),interval*(1+i)-interval/2)
                 
             
