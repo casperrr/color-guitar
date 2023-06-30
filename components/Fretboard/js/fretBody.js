@@ -1,4 +1,3 @@
-
 export default class FretBody{
     constructor(canvas,canvasDim, fretNum){
         this.canvas = canvas;
