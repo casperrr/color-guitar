@@ -4,12 +4,12 @@ import useCanvas from '@/components/Canvas/js/useCanvas';
 // import { handleCanvasClick } from '@/utils/canvasCode/CanvasCode';
 import React from 'react';
 
-const Canvas = (props,{ instance }) =>{
+const Canvas = ({ instance }) =>{
 
     const canvasRef = useCanvas({ instance });
 
     return ( 
-        <canvas ref={canvasRef} className='canvas' width={ props.width } height={ props.height } />
+        <canvas ref={canvasRef} className='canvas'/>
     );
 };
 
