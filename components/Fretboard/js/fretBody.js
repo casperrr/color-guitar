@@ -1,0 +1,77 @@
+
+export default class FretBody{
+    constructor(canvas,canvasDim, fretNum){
+        this.canvas = canvas;
+        this.canvasDim = canvasDim;
+        this.fretNum = fretNum;
+        this.fretboardDim = {
+            width:0.98*this.canvasDim.x,
+            height:0.95*this.canvasDim.y
+        };
+        this.fretMarkers = [1,3,5,7,9,12];
+        this.matrix = [];
+
+        // initialise matrix with an array of objects that contain the position of where to draw and stuff like frets and fretmarker that call like functions with draw
+        
+
+    }
+
+    makeBody(c){
+        let width = 0.98*this.canvasDim.x;
+        let height = 0.95*this.canvasDim.y;
+
+        let interval = (width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
+        for(let i = 0; i < this.fretNum; i++){
+            this.matrix[i] = this.addFret(c,interval*(i)+(this.canvasDim.x-this.fretboardDim.width),interval*(1+i)-interval/2,
+            i+1);
+            // this.addFret(c,interval*(1+i),interval*(1+i)-interval/2)
+                
+            
+        }
+
+        // console.log(this.matrix)
+
+
+        c.strokeStyle = '#ffffff';
+        c.lineWidth = 3;
+        c.beginPath();
+        c.rect(this.canvasDim.x-width,this.canvasDim.y-height,width-(this.canvasDim.x-width),height-(this.canvasDim.y-height));
+        c.stroke();
+        c.closePath();
+
+    }
+
+    addFret(c,fretPos,notePos,number){
+
+        c.strokeStyle = '#ffffff';
+        c.lineWidth = 2;
+        c.beginPath();
+        c.moveTo(fretPos,this.canvasDim.y-this.fretboardDim.height);
+        c.lineTo(fretPos,this.fretboardDim.height);
+        c.stroke();
+        c.closePath();
+
+        if(this.fretMarkers.includes(number)){
+            let rad = 10;
+            c.beginPath();
+            c.arc(notePos+rad*1.5,this.canvasDim.y/2,rad,0,Math.PI*2);
+            c.lineWidth=1;
+            c.closePath();
+            c.stroke();
+            
+        }
+
+        return {
+            fretPos: fretPos,
+            notePos: notePos,
+            fretNumber: number,
+        }
+    }
+
+
+}
+
+/*
+Could have either a matrix storing like positions that I can like use to position everything.
+I can just work out the maths and distance on the spot but wont be able to as easily chang stuff .
+*/
