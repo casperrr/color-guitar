@@ -64,7 +64,7 @@ export default class FretBoard {
                 let index = (i+string.openNote)%12;
                 this.notes.notesArr[index].drawNote(
                     this.c,
-                    this.body.fretArray[i].notePos-(noteSize*0.5),
+                    (this.body.fretArray[i].notePos-(noteSize*0.5))-(this.body.fretArray[1].notePos-this.body.fretArray[0].notePos),
                     string.yPos-(noteSize*0.5),
                     noteSize,
                     noteSize
@@ -72,6 +72,12 @@ export default class FretBoard {
                 
             }
         });
+
+        /*
+        I need to have a way to draw the open notes
+        I need the fretboard to include a 0 fret for the open strings
+        but everything should draw from the first string but still have the pos of the 0 fret. 
+        */
 
     }
 
