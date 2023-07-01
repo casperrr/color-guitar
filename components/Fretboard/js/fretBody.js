@@ -5,7 +5,7 @@ export default class FretBody{
         this.fretNum = fretNum;
         this.fretboardDim = {
             width:0.98*this.canvasDim.x,
-            height:0.95*this.canvasDim.y
+            height:0.9*this.canvasDim.y
         };
         this.fretMarkers = [1,3,5,7,9,12];
         this.fretArray = [];
