@@ -1,4 +1,4 @@
-.main_container{
+/* .main_container{
     display: flex;
     gap: 1rem;
     margin: 2rem;
@@ -9,4 +9,27 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+} */
+
+.main_container{
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1rf);
+    gap: 1rem;
+    justify-content: center;
+}
+
+.fretboard{
+    grid-row: 1;
+    grid-column: 1 / span 2;
+
+}
+
+.circleFiths{
+    grid-row: 1;
+    grid-column: 3;
+}
+
+.circleChrom{
+    grid-column: 3;
 }

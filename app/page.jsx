@@ -7,11 +7,17 @@ import ChromaticCircle from '@/components/ChromaticCircle/ChromaticCircle';
 export default function Home() {
   return (
     <main className={styles.main_container}>
-      <Fretboard/>
-      <div className={styles.circle_container}>
-        <CircleOfFiths/>
-        <ChromaticCircle/>
+      <div className={styles.fretboard}>
+        <Fretboard/>
       </div>
+      <div className={styles.circleFiths}>
+        <CircleOfFiths/>
+      </div>
+      <div className={styles.circleChrom}>
+        <ChromaticCircle />
+      </div>
+      {/* <div className={styles.circle_container}>
+      </div> */}
     </main>
   )
 }
