@@ -41,6 +41,8 @@ export default class FretBody{
         c.stroke();
         c.closePath();
 
+        return this.fretboardDim;
+
     }
 
     addFret(c,fretPos,notePos,number){

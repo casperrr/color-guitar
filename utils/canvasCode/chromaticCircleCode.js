@@ -4,5 +4,6 @@ export function drawOnCanvas(canvas, c){
     let test = new ChromaticCircle(canvas);
     // console.log("working! from chromatic circle")
     test.drawCircle(c);
+    // test.animateToChromaticV2(c);
 
 }

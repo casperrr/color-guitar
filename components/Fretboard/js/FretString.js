@@ -6,8 +6,19 @@ export default class FretString{
         this.c = c;
         this.yPos = yPos;
 
+        // this.drawString(c);
 
 
+    }
+
+    drawString(c,fretDim){
+        c.fillStyle = '#ffffff';
+        c.lineWidth = 4;
+
+        // c.beginPath();
+        // c.moveTo(c.canvas.width-fretDim.width,this.yPos);
+        // c.lineTo(fretDim.width+(c.canvas.width-fretDim.width)/2,this.yPos);
+        // c.stroke();
 
     }
 }

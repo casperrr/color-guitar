@@ -19,18 +19,32 @@ export default class FretBoard {
         this.notes = new Notes(canvas);
 
         this.#init();
-        this.body.makeBody(this.c);
+        this.fretboardDim = this.body.makeBody(this.c);
         
         this.makeStrings();
     }
 
     makeStrings(){
 
-        //position of string send it paramater in constructor
+        let yPosInterval = this.fretboardDim.height/(this.stringNum+1);
 
         for(let i = 0; i < this.stringNum; i++){
-            this.strings.push(new FretString(this.c,0));
+            this.strings.push(new FretString(
+                this.c,
+                0,
+                yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2
+            ));
+            
+            //draw string
+            this.c.fillStyle = '#ffffff';
+            this.c.lineWidth = 4;
 
+            this.c.beginPath();
+            this.c.moveTo(this.canvasDim.x-this.fretboardDim.width,this.strings[i].yPos);
+            this.c.lineTo(this.fretboardDim.width,
+            this.strings[i].yPos);
+            this.c.stroke();
+            
         }
 
     }
