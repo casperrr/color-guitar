@@ -4,7 +4,7 @@ export function drawOnCanvas(canvas, c){
 
     var test = new CircleOfFiths(canvas);
     test.drawCircle(c);
-    // console.log(test);
+    console.log(test);
 
     // test.animateToChromaticV2(c);
     
