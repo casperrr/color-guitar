@@ -7,11 +7,18 @@
     width: 100%;
     box-shadow: 0px 3px 12px 7px rgba(0, 0, 0, 0.671);
     align-items: center;
+    text-decoration: none;
+}
+
+.header_container Link {
+    text-decoration: none;
 }
 
 .header_title{
     margin-left: 1rem;
     font-weight: 300;
+    user-select: none;
+    cursor: pointer;
 }
 
 .header_title span{
