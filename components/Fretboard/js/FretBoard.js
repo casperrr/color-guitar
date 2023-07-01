@@ -37,7 +37,7 @@ export default class FretBoard {
         for(let i = 0; i < this.stringNum; i++){
             this.strings.push(new FretString(
                 this.c, // Context
-                this.tuning.tuning[i], //Tuning (open note)
+                this.tuning.tuning[(this.tuning.tuning.length-1)-i], //Tuning (open note)
                 yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2 // String y position
             ));
             
@@ -52,6 +52,8 @@ export default class FretBoard {
             this.c.stroke();
             
         }
+
+        
 
     }
 
