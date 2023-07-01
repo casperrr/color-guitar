@@ -36,11 +36,21 @@ let accidentals = {
             c.stroke();
     
             //Draw note text
-            c.font = `${Math.ceil(w*0.5333)}px sans-serif`;
+
             c.textAlign = 'center';
             c.textBaseline = 'middle';
             c.fillStyle = '#ffffff';
-            c.fillText(this.noteName, x+w/2, y+h/2);
+            if(this.accidental){
+                c.font = `${Math.ceil((w*0.5333)*0.65)}px sans-serif`;
+                let a = {x:x+w*0.38, y:y+h*0.38}
+                let b = {x:x+w*0.67 ,y:y+h*0.67 };
+                c.fillText(accidentals[this.noteNumber][0], a.x, a.y);
+                c.fillText(accidentals[this.noteNumber][1], b.x, b.y);
+            }else{
+                c.font = `${Math.ceil(w*0.5333)}px sans-serif`;
+                c.fillText(this.noteName, x+w/2, y+h/2);
+            }
+
         }
     }
     
