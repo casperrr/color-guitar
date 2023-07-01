@@ -4,7 +4,7 @@ export default class FretBody{
         this.canvasDim = canvasDim;
         this.fretNum = fretNum;
         this.fretboardDim = {
-            width:0.98*this.canvasDim.x,
+            width:0.95*this.canvasDim.x,
             height:0.95*this.canvasDim.y
         };
         this.fretMarkers = [1,3,5,7,9,12];
@@ -16,10 +16,8 @@ export default class FretBody{
     }
 
     makeBody(c){
-        let width = 0.98*this.canvasDim.x;
-        let height = 0.95*this.canvasDim.y;
 
-        let interval = (width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
+        let interval = (this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
         for(let i = 0; i < this.fretNum; i++){
             this.fretArray[i] = this.addFret(c,
                 interval*(i)+(this.canvasDim.x-this.fretboardDim.width),
@@ -38,7 +36,7 @@ export default class FretBody{
         c.strokeStyle = '#ffffff';
         c.lineWidth = 3;
         c.beginPath();
-        c.rect(this.canvasDim.x-width,this.canvasDim.y-height,width-(this.canvasDim.x-width),height-(this.canvasDim.y-height));
+        c.rect(this.canvasDim.x-this.fretboardDim.width,this.canvasDim.y-this.fretboardDim.height,this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width),this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
         c.stroke();
         c.closePath();
 
