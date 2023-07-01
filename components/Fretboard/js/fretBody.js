@@ -4,7 +4,7 @@ export default class FretBody{
         this.canvasDim = canvasDim;
         this.fretNum = fretNum;
         this.fretboardDim = {
-            width:0.95*this.canvasDim.x,
+            width:0.98*this.canvasDim.x,
             height:0.95*this.canvasDim.y
         };
         this.fretMarkers = [1,3,5,7,9,12];
@@ -17,26 +17,27 @@ export default class FretBody{
 
     makeBody(c){
 
-        let interval = (this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum;
-        for(let i = 0; i < this.fretNum; i++){
+        let interval = (this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum+1;
+        for(let i = 0; i < this.fretNum+1; i++){
             this.fretArray[i] = this.addFret(c,
-                interval*(i)+(this.canvasDim.x-this.fretboardDim.width),
-                // (interval*(i)+(interval/4))+(this.canvasDim.x-this.fretboardDim.width),
+                interval*(i+1)+(this.canvasDim.x-this.fretboardDim.width),
                 (interval*(i)+(this.canvasDim.x-this.fretboardDim.width)+(interval/2)),
-                i+1
+                i
                 );
             // this.addFret(c,interval*(1+i),interval*(1+i)-interval/2)
                 
             
         }
 
-        // console.log(this.fretArray)
-
-
         c.strokeStyle = '#ffffff';
         c.lineWidth = 3;
         c.beginPath();
-        c.rect(this.canvasDim.x-this.fretboardDim.width,this.canvasDim.y-this.fretboardDim.height,this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width),this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
+        c.rect(
+            interval*(1)+(this.canvasDim.x-this.fretboardDim.width),
+            this.canvasDim.y-this.fretboardDim.height,
+            interval*(this.fretNum-1),
+            this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
+        // c.rect(this.canvasDim.x-this.fretboardDim.width,this.canvasDim.y-this.fretboardDim.height,this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width),this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
         c.stroke();
         c.closePath();
 

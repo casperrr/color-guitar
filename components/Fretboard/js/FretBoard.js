@@ -46,9 +46,20 @@ export default class FretBoard {
             this.c.lineWidth = 4;
 
             this.c.beginPath();
-            this.c.moveTo(this.canvasDim.x-this.fretboardDim.width,this.strings[i].yPos);
-            this.c.lineTo(this.fretboardDim.width,
-            this.strings[i].yPos);
+            this.c.moveTo(
+                this.body.fretArray[0].fretPos,
+                this.strings[i].yPos
+            );
+            // this.c.moveTo(
+            //     this.canvasDim.x-this.fretboardDim.width,
+            //     this.strings[i].yPos
+            // );
+            this.c.lineTo(
+                this.body.fretArray[this.fretNum-1].fretPos,
+                this.strings[i].yPos
+            );
+            // this.c.lineTo(this.fretboardDim.width,
+            // this.strings[i].yPos);
             this.c.stroke();
             
         }
@@ -64,7 +75,8 @@ export default class FretBoard {
                 let index = (i+string.openNote)%12;
                 this.notes.notesArr[index].drawNote(
                     this.c,
-                    (this.body.fretArray[i].notePos-(noteSize*0.5))-(this.body.fretArray[1].notePos-this.body.fretArray[0].notePos),
+                    (this.body.fretArray[i].notePos-(noteSize*0.5)),
+                    // (this.body.fretArray[i].notePos-(noteSize*0.5))-(this.body.fretArray[1].notePos-this.body.fretArray[0].notePos),
                     string.yPos-(noteSize*0.5),
                     noteSize,
                     noteSize
