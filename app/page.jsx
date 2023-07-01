@@ -3,6 +3,7 @@ import Fretboard from '@/components/Fretboard/Fretboard';
 import styles from './homePage.module.css';
 import CircleOfFiths from '@/components/CircleOfFiths/CircleOfFiths';
 import ChromaticCircle from '@/components/ChromaticCircle/ChromaticCircle';
+import Controls from '@/components/Controls/Controls';
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
       </div>
       <div className={styles.circleChrom}>
         <ChromaticCircle />
+      </div>
+      <div className={styles.controls}>
+        <Controls/>
       </div>
       {/* <div className={styles.circle_container}>
       </div> */}
