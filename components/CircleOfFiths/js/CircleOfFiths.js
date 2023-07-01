@@ -74,7 +74,7 @@ export default class CircleOfFiths{
 
         let index = 0;//C note
         for(let i = 0; i < 12; i++){
-            let deg = 360/11*i;
+            let deg = 360/12*i;
             this.notes.push(new Note(index,deg,this.canvas));
             index = ((index-5)+12)%12;
         }

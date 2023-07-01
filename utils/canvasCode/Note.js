@@ -31,7 +31,7 @@ let oneDAllNotes = [
             c.stroke();
     
             //Draw note text
-            c.font = `${this.canvas.width*0.06}px sans-serif`;
+            c.font = `${Math.ceil(w*0.5333)}px sans-serif`;
             c.textAlign = 'center';
             c.textBaseline = 'middle';
             c.fillStyle = '#ffffff';
