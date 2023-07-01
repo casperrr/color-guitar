@@ -1,9 +1,11 @@
-import Image from 'next/image'
+
+import Fretboard from '@/components/Fretboard/Fretboard';
+import styles from './homePage.module.css';
 
 export default function Home() {
   return (
-    <main>
-      
+    <main className={styles.main_container}>
+      <Fretboard/>
     </main>
   )
 }
