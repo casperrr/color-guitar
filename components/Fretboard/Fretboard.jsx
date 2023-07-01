@@ -5,9 +5,11 @@ const Fretboard = () => {
 
 
     return(
-        <div className="canvas_container">
+        <div className="canvas_container fretboardCanvas">
             <h3>Fretboard</h3>
-            <Canvas instance={"fretboardCode"} />
+            <div>
+                <Canvas instance={"fretboardCode"} />
+            </div>
         </div>
     );
 };

@@ -1,5 +1,12 @@
 .main_container{
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     margin: 2rem;
+    justify-content: center;
+}
+
+.circle_container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
