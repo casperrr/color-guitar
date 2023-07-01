@@ -58,7 +58,12 @@ export default class FretBody{
         if(this.fretMarkers.includes(number)){
             let rad = 10;
             c.beginPath();
-            c.arc(notePos+rad*1.5,this.canvasDim.y/2,rad,0,Math.PI*2);
+            c.arc(notePos+rad*1.5,
+                this.canvasDim.y/2,
+                rad,
+                0,
+                Math.PI*2
+                );
             c.lineWidth=1;
             c.closePath();
             c.stroke();
