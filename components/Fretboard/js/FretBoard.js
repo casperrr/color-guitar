@@ -27,6 +27,7 @@ export default class FretBoard {
         this.fretboardDim = this.body.makeBody(this.c);
         
         this.makeStrings();
+        this.drawNotes();
     }
 
     makeStrings(){
@@ -55,7 +56,21 @@ export default class FretBoard {
     }
 
     drawNotes(){
-        
+        let noteSize = 40;
+        this.strings.forEach((string) => {
+            for(let i = 0; i < this.fretNum; i++){
+                let index = (i+string.openNote)%12;
+                this.notes.notesArr[index].drawNote(
+                    this.c,
+                    this.body.fretArray[i].notePos-(noteSize*0.5),
+                    string.yPos-(noteSize*0.5),
+                    noteSize,
+                    noteSize
+                )
+                
+            }
+        });
+
     }
 
     #init(){
