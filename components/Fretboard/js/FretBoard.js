@@ -28,6 +28,7 @@ export default class FretBoard {
         
         this.makeStrings();
         this.drawNotes();
+        this.drawFretNumbers();
     }
 
     makeStrings(){
@@ -91,6 +92,19 @@ export default class FretBoard {
         but everything should draw from the first string but still have the pos of the 0 fret. 
         */
 
+    }
+
+    drawFretNumbers(){
+        this.c.font = '18px sans-serif';
+        this.c.textBaseline = 'hanging';
+        this.c.fillStyle = '#ffffff';
+        this.body.fretArray.forEach(x => {
+            this.c.fillText(
+                x.fretNumber,
+                x.notePos,
+                this.fretboardDim.height*1.02
+            );
+        });
     }
 
     #init(){
