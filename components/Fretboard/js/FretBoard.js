@@ -18,6 +18,11 @@ export default class FretBoard {
         this.body = new FretBody(this.canvas, this.canvasDim,this.fretNum);
         this.notes = new Notes(canvas);
 
+        this.tunings = [
+            {name: 'Standard',tuning: [4,9,2,7,11,4]}
+        ];
+        this.tuning = this.tunings[0];
+
         this.#init();
         this.fretboardDim = this.body.makeBody(this.c);
         
@@ -30,9 +35,9 @@ export default class FretBoard {
 
         for(let i = 0; i < this.stringNum; i++){
             this.strings.push(new FretString(
-                this.c,
-                0,
-                yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2
+                this.c, // Context
+                this.tuning.tuning[i], //Tuning (open note)
+                yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2 // String y position
             ));
             
             //draw string
@@ -47,6 +52,10 @@ export default class FretBoard {
             
         }
 
+    }
+
+    drawNotes(){
+        
     }
 
     #init(){
