@@ -1,0 +1,24 @@
+.header_container{
+    position: sticky;
+    display: flex;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    height: 4rem;
+    width: 100%;
+    box-shadow: 0px 3px 12px 7px rgba(0, 0, 0, 0.671);
+    align-items: center;
+}
+
+.header_title{
+    margin-left: 1rem;
+    font-weight: 300;
+}
+
+.header_title span{
+    /* background: -webkit-linear-gradient(#ff009d,#ffd000); */
+    font-weight: 600;
+    background: linear-gradient(to left, #ff009d 0%, #ffd000 50%, #1249ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: linear-gradient(to top, #ff009d 0%, #ffd000 100%); */
+}
