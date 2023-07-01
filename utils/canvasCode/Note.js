@@ -2,10 +2,11 @@ let oneDAllNotes = [
     //   0   1    2   3    4   5   6    7   8    9   10  11
         'C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'
     ];
-// let oneDAllNotess = [
-//     //   0   1    2   3    4   5   6    7   8    9   10  11
-//         {n:'C',}
-//     ];
+let accidentals = {
+    1:['C♯','D♭'], 3:['D♯','E♭'], 6:['F♯','G♭'], 8:['G♯','A♭'], 10:['A♯','B♭']
+};
+
+//  ♯   ♭
     export default class Note{
     
         constructor(noteNumber,deg,canvas,accidental) {
