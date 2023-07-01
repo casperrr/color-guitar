@@ -12,7 +12,7 @@ export default class FretBoard {
         }
         this.canvas = canvas;
         this.c = c;
-        this.canvasDim = {x:800,y:400};
+        this.canvasDim = {x:900,y:400};
         this.fretNum = 12;
         this.strings = [];
         this.body = new FretBody(this.canvas, this.canvasDim,this.fretNum);

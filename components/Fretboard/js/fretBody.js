@@ -23,7 +23,8 @@ export default class FretBody{
         for(let i = 0; i < this.fretNum; i++){
             this.fretArray[i] = this.addFret(c,
                 interval*(i)+(this.canvasDim.x-this.fretboardDim.width),
-                (interval*(i)+(interval/4))+(this.canvasDim.x-this.fretboardDim.width),
+                // (interval*(i)+(interval/4))+(this.canvasDim.x-this.fretboardDim.width),
+                (interval*(i)+(this.canvasDim.x-this.fretboardDim.width)+(interval/2)),
                 i+1
                 );
             // this.addFret(c,interval*(1+i),interval*(1+i)-interval/2)
@@ -58,7 +59,7 @@ export default class FretBody{
         if(this.fretMarkers.includes(number)){
             let rad = 10;
             c.beginPath();
-            c.arc(notePos+rad*1.5,
+            c.arc(notePos,
                 this.canvasDim.y/2,
                 rad,
                 0,
