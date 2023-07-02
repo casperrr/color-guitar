@@ -1,0 +1,50 @@
+.dropdown{
+
+}
+
+.dropdownBtn{
+    background-color: #000000;
+    padding: 0.6rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    user-select: none;
+    /* position:relative; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.dropdownBtn p {
+    font-weight: 200;
+    font-size: 1rem;
+    padding-right: 1rem;
+    color: #ffffffc0;
+    /* position: relative; */
+    display: inline;
+}
+
+.dropdownBtn span {
+    font-weight: 300;
+}
+
+
+.dropdownMenu{
+    
+}
+
+.dropdownItem{
+
+}
+
+
+/* 
+
+pill shape dropdown with the options that scroll out and then like there is a drop shadow thats more like a glow thats over the options that uses a gradient of the rainbow scales.
+
+
+make the scale drop down menu like each color of the scale note ygm.
+if coding it in is a pain in the bum u could just use css variables or something or pass in the color to broooooooo just its easy to code im sure fuck it man thats what im doing im coding it.
+
+
+*/
