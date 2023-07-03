@@ -12,6 +12,10 @@ export default function Dropdown(props) {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState({name:props.title,color:'#000000'});
 
+    if(props.options){
+        items = props.options;
+    }
+
 
     function handleClick(){
         setOpen(!open);

@@ -9,3 +9,9 @@
     /* position: static; */
 }
 
+.controls_container h3{
+    font-weight: 300;
+    font-size: 12pt;
+    margin-left: 0.6rem;
+}
+
