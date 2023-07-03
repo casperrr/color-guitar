@@ -6,7 +6,7 @@ let items = ['item 1', 'ohhhhh', 'item 3', 'toker'];
 
 export default function Dropdown(props) {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
 
     function handleClick(){
@@ -14,7 +14,7 @@ export default function Dropdown(props) {
         // console.log(document.getElementsByClassName(styles.Menu));
         let menu = document.getElementsByClassName(styles.Menu)[0];
         let translate = menu.clientHeight;
-        translate = open ? translate : 0;
+        translate = open ? 0 : translate;
         menu.style.transform = `translateY(${translate}px)`;
     }
 
