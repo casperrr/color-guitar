@@ -7,7 +7,7 @@ let items = ['item 1', 'ohhhhh', 'item 3', 'toker'];
 export default function Dropdown(props) {
 
     const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = useState(props.title);
 
 
     function handleClick(){
@@ -21,7 +21,8 @@ export default function Dropdown(props) {
         
         function handleSelect(e){
             let target = e.target.textContent;
-            console.log(target)
+            // console.log(target)
+            setSelected(target);
             handleClick();
         }
 
@@ -36,7 +37,7 @@ export default function Dropdown(props) {
 
     return(
         <div className={styles.dropdown}>
-            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{props.title}
+            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{selected}
             {open ? <span>-</span>: <span>+</span>}</button>
             <div className={styles.menuHider}>
                 <ul className={styles.Menu}>
