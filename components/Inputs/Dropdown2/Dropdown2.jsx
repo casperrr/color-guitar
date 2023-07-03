@@ -1,11 +1,26 @@
+"use client";
 import styles from './Dropdown.module.css';
+import React, {useState} from "react";
 
+let items = ['item 1', 'ohhhhh', 'item 3', 'toker'];
 
 export default function Dropdown(props) {
 
+    const [open, setOpen] = useState(true);
+
+
+    function handleClick(){
+        setOpen(!open);
+        // console.log(document.getElementsByClassName(styles.Menu));
+        let menu = document.getElementsByClassName(styles.Menu)[0];
+        let translate = menu.clientHeight;
+        translate = open ? translate : 0;
+        menu.style.transform = `translateY(${translate}px)`;
+    }
+
     return(
         <div className={styles.dropdown}>
-            <button className={styles.DropdownBtn}>{props.title}</button>
+            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{props.title}</button>
             <Menu/>
         </div>
     )
@@ -13,7 +28,7 @@ export default function Dropdown(props) {
 
 function Menu(){
 
-    let items = ['item 1', 'ohhhhh', 'item 3', 'toker'];
+    
 
     
     function MenuItem(props){
