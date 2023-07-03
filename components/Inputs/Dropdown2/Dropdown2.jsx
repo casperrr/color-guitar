@@ -2,12 +2,15 @@
 import styles from './Dropdown.module.css';
 import React, {useState} from "react";
 
-let items = ['item 1', 'ohhhhh', 'item 3', 'toker'];
+let items = [
+    {name:'item 1',color:'#ff0000'},
+    {name:'ohhhhh',color:'#ffe50f'},
+];
 
 export default function Dropdown(props) {
 
     const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState(props.title);
+    const [selected, setSelected] = useState({name:props.title,color:'#000000'});
 
 
     function handleClick(){
@@ -19,17 +22,18 @@ export default function Dropdown(props) {
 
     function MenuItem(props){
         
-        function handleSelect(e){
-            let target = e.target.textContent;
-            // console.log(target)
-            setSelected(target);
+        function handleSelect(e,selected){
+            let target = e.target;
+            console.log(e)
+            setSelected(items[selected]);
+            console.log(selected)
             handleClick();
         }
 
         return(
-            <li className={styles.MenuItem} onClick={(e) => handleSelect(e)}>
+            <li className={styles.MenuItem} onClick={(e) => handleSelect(e,props.itemIndex)}>
                 <a>{props.children}</a>
-                <div></div>
+                <div style={{backgroundColor: props.color}}></div>
             </li>
         )
     }
@@ -37,12 +41,13 @@ export default function Dropdown(props) {
 
     return(
         <div className={styles.dropdown}>
-            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{selected}
-            {open ? <span>-</span>: <span>+</span>}</button>
+            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{selected.name}
+            <span style={{backgroundColor: selected.color}}>{open ? '-' : '+'}</span>
+            </button>
             <div className={styles.menuHider}>
                 <ul className={styles.Menu}>
                     <li className={styles.gap}></li>
-                    {items.map((item) => <MenuItem>{ item }</MenuItem>)}
+                    {items.map((item,index) => <MenuItem color={item.color} key={index} itemIndex={index}>{ item.name }</MenuItem>)}
                 </ul>
             </div>
         </div>

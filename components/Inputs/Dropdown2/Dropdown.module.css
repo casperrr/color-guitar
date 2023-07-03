@@ -18,7 +18,12 @@
 
 .DropdownBtn span {
     margin-left: 0.7rem;
-    transition: all 100ms ease;
+    background-color: aqua;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    
+    transition: all 150ms ease-in-out;
 }
 .DropdownBtn:hover > span {
     scale: 1.2;
