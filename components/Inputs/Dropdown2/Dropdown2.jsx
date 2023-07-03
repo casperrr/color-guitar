@@ -42,9 +42,11 @@ function Menu(){
 
 
     return(
-        <ul className={styles.Menu}>
-            <li className={styles.gap}></li>
-            {items.map((item) => <MenuItem>{ item }</MenuItem>)}
-        </ul>
+        <div className={styles.menuHider}>
+            <ul className={styles.Menu}>
+                <li className={styles.gap}></li>
+                {items.map((item) => <MenuItem>{ item }</MenuItem>)}
+            </ul>
+        </div>
     )
 }

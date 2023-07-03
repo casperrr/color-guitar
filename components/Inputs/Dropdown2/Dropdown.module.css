@@ -9,8 +9,35 @@
     padding: 0.6rem 0.8rem;
     border-radius: 50px;
     cursor: pointer;
+    overflow: hidden;
+    
     /* z-index: 2; */
 }
+
+.DropdownBtn::after {
+    /* content: "hello"; */
+    position: absolute;
+    height: 100px;
+    /* background-color: aqua; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    clip-path: inset(100px);
+    
+}
+
+.menuHider{
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+    /* z-index: 40; */
+    /* background-color: aqua; */
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+}
+
 
 .Menu{
     position: absolute;
@@ -19,7 +46,7 @@
     list-style: none;
     z-index: -1;
     width: 100%;
-    pointer-events: none;
+    /* pointer-events: none; */
     
     background-color: #0f0f0f;
     /* border-radius: 20px; */
@@ -27,14 +54,28 @@
     /* opacity: 0; */
     /* --firstPos: bottom:0; */
     /* transform: translateY(var(--firstPos)); */
-    bottom: 50%;
+    bottom: 100%;
     /* top: 50%; */
     /* height: 0; */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* transform: scaleY(0); */
     /* transform-origin: top; */
     /* transition:bottom 150ms ease-in-out, top 150ms ease-in-out, height 150ms ease-in-out; */
-    transition: transform 550ms ease-in-out;
+    
+    
+    transition: transform 250ms ease-in-out;
+}
+.Menu::before{
+    /* background-color: aqua; */
+    position: absolute;
+    top: 0;
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    /* overflow: hidden; */
+    /* height: 100%; */
+    box-shadow: 0px -200px 0 200px rgba(0, 0, 0, 0);
+    transform: translateY(0);
+    /* content: 'hello'; */
+    
 }
 
 .gap{
@@ -49,24 +90,3 @@
     cursor: pointer;
 }
 
-.dropdown > .DropdownBtn:focus + .Menu {
-    /* opacity: 1; */
-    /* --secondPos: top: 50%; */
-    /* --translateAmount: calc(bottom:0; - top:50%;); */
-    /* transform: translateY(calc(bottom - top)); */
-    /* bottom: auto; */
-    /* bottom: -100%; */
-    /* top: 50%; */
-    /* overflow: visible; */
-    /* animation: animation 300ms; */
-    /* height: 100%; */
-    /* transform: scaleY(1); */
-    /* pointer-events: auto; */
-
-}
-
-@keyframes animation{
-    from{bottom: 0;}
-    to{bottom: auto;
-    top: 50%;}
-}
