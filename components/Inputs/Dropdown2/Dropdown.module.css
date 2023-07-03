@@ -76,22 +76,30 @@
 .MenuItem div{
     position: relative;
     right: -7%;
-    border-radius: 0.05rem;
+    /* border-radius: 0.05rem; */
     background-color: aqua;
-    height: 1.3rem;
+    height: 1.25rem;
     width: 0.1rem;
     transition: all 100ms ease;
 }
 .MenuItem:hover > div{
     width: 0.3rem;
 }
+.MenuItem:hover{
+    filter: brightness(1.3);
+}
+.MenuItem:hover > a{
+    scale: 1.1;
+}
 
 
 .MenuItem a{
-    color: #ffffffaf;
-    background-color: rgb(34, 34, 34);
+    color: #ffffffb9;
+    /* background-color: rgb(34, 34, 34); */
     border-radius: 4px;
     padding: 0rem 0.4rem;
+
+    transition: all 100ms ease;
 }
 
 .MenuItem:last-child{
