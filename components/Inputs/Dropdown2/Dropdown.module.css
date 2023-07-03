@@ -4,11 +4,13 @@
 
 .DropdownBtn{
     background-color: #000000;
+    color: #ffffffcb;
     border-style: none;
     padding: 0.6rem 0.8rem;
     border-radius: 50px;
     cursor: pointer;
     overflow: hidden;
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.644);
 }
 
 .DropdownBtn span {
@@ -39,7 +41,7 @@
     z-index: -1;
     width: 100%;
     background-color: #0f0f0f;
-    border-radius: 0px 0px 17px 17px;
+    border-radius: 0px 0px 14px 14px;
     bottom: 100%;
     transition: transform 250ms ease;
 }
@@ -47,15 +49,49 @@
 
 
 .gap{
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
 }
 
 .MenuItem {
-    padding: 0.1rem 0.8rem;
+    display: flex;
+    padding: 0.1rem 0.6rem;
     font-size: small;
     font-weight: 200;
     cursor: pointer;
-    
+    pointer-events: all;
+    justify-content: space-between;
+    align-items: center;
+}
+/* .MenuItem::after{
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: aqua;
+    right: 3%;
+    bottom: 0%;
+    height: 90%;
+    width: 0.1rem;
+} */
+
+.MenuItem div{
+    position: relative;
+    right: -7%;
+    border-radius: 0.05rem;
+    background-color: aqua;
+    height: 1.3rem;
+    width: 0.1rem;
+    transition: all 100ms ease;
+}
+.MenuItem:hover > div{
+    width: 0.3rem;
+}
+
+
+.MenuItem a{
+    color: #ffffffaf;
+    background-color: rgb(34, 34, 34);
+    border-radius: 4px;
+    padding: 0rem 0.4rem;
 }
 
 .MenuItem:last-child{

@@ -37,6 +37,7 @@ function Menu(){
         return(
             <li className={styles.MenuItem}>
                 <a>{props.children}</a>
+                <div></div>
             </li>
         )
     }
