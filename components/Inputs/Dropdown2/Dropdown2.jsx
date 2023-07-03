@@ -20,7 +20,8 @@ export default function Dropdown(props) {
 
     return(
         <div className={styles.dropdown}>
-            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{props.title}</button>
+            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{props.title}
+            {open ? <span>-</span>: <span>+</span>}</button>
             <Menu/>
         </div>
     )

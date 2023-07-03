@@ -11,6 +11,15 @@
     overflow: hidden;
 }
 
+.DropdownBtn span {
+    /* display:contents; */
+    /* position: relative; */
+    /* width: 1rem; */
+    margin-left: 0.7rem;
+    /* font-size: 20px; */
+}
+
+
 
 .menuHider{
     position: absolute;
