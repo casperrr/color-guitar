@@ -1,5 +1,5 @@
 .dropdown{
-
+    position: relative;
 }
 
 .dropdownBtn{
@@ -26,15 +26,45 @@
 
 .dropdownBtn span {
     font-weight: 300;
+    transition: transform ease-in-out 0.3s;
+}
+
+.dropdownBtn span:hover::after{
+    
+    transform: rotate(90deg);
+}
+
+.dropdownBtn span::after{
+    position: absolute;
+    font-weight: 300;
+    /* z-index: 100; */
 }
 
 
 .dropdownMenu{
-    
+    position: absolute;
+    list-style: none;
+    top: 2.5rem;
+    background-color: #0c0c0c;
+    visibility: hidden;
+}
+
+.dropdownBtn:focus + .dropdownMenu {
+    visibility: visible;
 }
 
 .dropdownItem{
+    background-color: #111111;
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+}
 
+.dropdownItem a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 200;
+    padding: 0.3rem 1.5rem;
 }
 
 

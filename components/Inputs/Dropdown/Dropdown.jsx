@@ -39,7 +39,7 @@ let items = [
 
 
 const Dropdown = (props) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     return(
         <div className={styles.dropdown}>
@@ -48,9 +48,10 @@ const Dropdown = (props) => {
                 <p >
                     {props.name}
                 </p>
-                <span>+</span>
+                <span>-</span>
             </a>
-            {open && <DropdownMenu items={items}/>}
+            {/* {open && <DropdownMenu items={items}/>} */}
+            <DropdownMenu items={items}/>
         </div>
     )
 }
@@ -61,17 +62,17 @@ function DropdownMenu(props){
     
     function DropdownItem(props){
         return(
-            <a className={styles.DropdownItem}>
-                {props.children}
-            </a>
+            <li className={styles.dropdownItem}>
+                <a>{props.children}</a>
+            </li>
         )
     }
 
     return(
-        <div className={styles.DropdownMenu}>
+        <ul className={styles.dropdownMenu}>
             {items.map((item) => <DropdownItem>{item}</DropdownItem>)}
             
-        </div>
+        </ul>
     )
 }
 
