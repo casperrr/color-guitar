@@ -23,10 +23,9 @@ export default function Dropdown(props) {
     function MenuItem(props){
         
         function handleSelect(e,selected){
-            let target = e.target;
-            console.log(e)
+            // console.log(e)
             setSelected(items[selected]);
-            console.log(selected)
+            // console.log(selected)
             handleClick();
         }
 
