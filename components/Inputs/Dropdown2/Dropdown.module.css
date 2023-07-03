@@ -18,7 +18,7 @@
     pointer-events: none;
     overflow: hidden;
     width: 100%;
-    height: 200px;
+    height: 300px;
 }
 
 
@@ -30,9 +30,11 @@
     z-index: -1;
     width: 100%;
     background-color: #0f0f0f;
+    border-radius: 0px 0px 17px 17px;
     bottom: 100%;
-    transition: transform 250ms ease-in-out;
+    transition: transform 250ms ease;
 }
+
 
 
 .gap{
@@ -44,5 +46,11 @@
     font-size: small;
     font-weight: 200;
     cursor: pointer;
+    
 }
+
+.MenuItem:last-child{
+    margin-bottom: 0.4rem;
+}
+
 
