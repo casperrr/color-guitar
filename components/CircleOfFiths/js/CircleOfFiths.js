@@ -16,12 +16,16 @@ export default class CircleOfFiths{
         this.drawCircle(this.c)
     }
 
+    draw(){
+        this.drawCircle(this.c);
+    }
+
     drawCircle(c,r2){
         let centerOff = {x:(this.canvas.width/2)-(this.noteSize/2), y:(this.canvas.height/2)-(this.noteSize/2)}
         let angle = 0;
         let otherRad = this.radius;
         c.clearRect(0,0,this.canvas.width,this.canvas.height);
-        console.log(this.noteOrder)
+        // console.log(this.noteOrder)
         for (let i = 0; i < 12; i++) {
             angle = (i-3) * (Math.PI*2)/12;
             if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.radius;

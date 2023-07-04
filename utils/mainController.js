@@ -2,23 +2,27 @@
 import FretBoard from "@/components/Fretboard/js/FretBoard";
 import CircleOfFiths from "@/components/CircleOfFiths/js/CircleOfFiths";
 import ChromaticCircle from "@/components/ChromaticCircle/js/chromaticCircle";
+import Notes from "./canvasCode/Notes";
 
-function Main(Fretboard,CircleOfFiths,ChromaticCircle){
-    // let main = new MainController();
-    // console.log(Fretboard);
-    // console.log(CircleOfFiths);
-    // console.log(ChromaticCircle);
-
-    console.log("hi!!!!!!!!!")
-    
-    // I need to from the page.jsx call the main function and pass in the reference to each of the canvases.
-}
 
 const scripts = [FretBoard,ChromaticCircle,CircleOfFiths];
+// const notes = new Notes;
 
 export default class MainController{
     constructor(){
         this.canvases = [];
+        this.notes = new Notes();
+        this.scales = new Options([
+            {name:'Chromatic',color:'#ff0000'},
+            {name:'Major',color:'#ffe50f'},
+            {name:'Minor',color:'#10ff0f'},
+        ]);
+        let arr = [];
+        this.notes.notesArr.map((note)=>{
+            arr.push(
+                {name:note.noteName,color:note.color}
+            )});
+        this.noteOptions = new Options(arr);
     }
 
     addCanvas(canvas,script){
@@ -37,5 +41,22 @@ export default class MainController{
         });
     }
 
+    update(){
+        this.canvases.forEach((canvas) => {
+            canvas.obj.draw();
+        });
+    }
 
+
+}
+
+class Options{
+    constructor(options, initialOption){
+        this.options = options;
+        this.selected = initialOption ? initialOption : null;
+    }
+
+    setSelected(selected){
+        this.selected = selected;
+    }
 }

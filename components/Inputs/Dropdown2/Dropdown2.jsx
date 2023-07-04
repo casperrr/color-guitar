@@ -13,8 +13,8 @@ export default function Dropdown(props) {
     const [selected, setSelected] = useState({name:props.title,color:'#000000'});
     const menuRef = useRef();
 
-    if(props.options){
-        items = props.options;
+    if(props.options.options){
+        items = props.options.options;
     }
 
     useEffect(() => {
@@ -40,6 +40,9 @@ export default function Dropdown(props) {
         function handleSelect(e,selected){
             // console.log(e)
             setSelected(items[selected]);
+            props.options.selected = selected;
+            props.controller.update();
+            console.log(props.controller)
             // console.log(selected)
             handleClick(e);
         }
@@ -61,7 +64,7 @@ export default function Dropdown(props) {
             <div className={styles.menuHider}>
                 <ul className={styles.Menu} ref={menuRef}>
                     <li className={styles.gap}></li>
-                    {items.map((item,index) => <MenuItem color={item.color} key={index} itemIndex={index}>{ item.name }</MenuItem>)}
+                    {items.map((item,index) => <MenuItem color={item.color} key={index} itemIndex={index} controller={props.controller} options={props.options}>{ item.name }</MenuItem>)}
                 </ul>
             </div>
         </div>

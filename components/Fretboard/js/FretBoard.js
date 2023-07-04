@@ -31,6 +31,12 @@ export default class FretBoard {
         this.drawFretNumbers();
     }
 
+    draw(){
+        this.c.clearRect(0,0,this.canvasDim.width,this.canvasDim.height);
+        this.drawNotes();
+        this.drawFretNumbers();
+    }
+
     makeStrings(){
 
         let yPosInterval = this.fretboardDim.height/(this.stringNum+1);

@@ -30,7 +30,7 @@ export default function Home() {
         <ChromaticCircle controller={controller}/>
       </div>
       <div className={styles.controls}>
-        <Controls/>
+        <Controls controller={controller}/>
       </div>
     </main>
   )
