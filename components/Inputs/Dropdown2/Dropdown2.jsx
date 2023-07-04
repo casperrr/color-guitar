@@ -1,6 +1,6 @@
 "use client";
 import styles from './Dropdown.module.css';
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 
 let items = [
     {name:'item 1',color:'#ff0000'},
@@ -9,18 +9,29 @@ let items = [
 
 export default function Dropdown(props) {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [selected, setSelected] = useState({name:props.title,color:'#000000'});
+    const menuRef = useRef();
 
     if(props.options){
         items = props.options;
     }
 
+    useEffect(() => {
+        // setOpen(!open);
+        // console.log("use effect hereeee!")
+        let menu = menuRef.current;
+        let translate = menu.clientHeight;
+        translate = open ? 0 : translate;
+        // console.log(menu)
+        menu.style.transform = `translateY(${translate}px)`;
+    },[open])
 
-    function handleClick(){
+
+    function handleClick(e){
         setOpen(!open);
         // console.log(document.getElementsByClassName(styles.Menu));
-        openClose(open)
+        // openClose(e,open)
     }
 
 
@@ -30,7 +41,7 @@ export default function Dropdown(props) {
             // console.log(e)
             setSelected(items[selected]);
             // console.log(selected)
-            handleClick();
+            handleClick(e);
         }
 
         return(
@@ -44,11 +55,11 @@ export default function Dropdown(props) {
 
     return(
         <div className={styles.dropdown}>
-            <button className={styles.DropdownBtn} onClick={() => handleClick()}>{selected.name}
-            <span style={{backgroundColor: selected.color}}>{open ? '-' : '+'}</span>
+            <button className={styles.DropdownBtn} onClick={(e) => handleClick(e)}>{selected.name}
+            <span style={{backgroundColor: selected.color}}>{open ? '+' : '-'}</span>
             </button>
             <div className={styles.menuHider}>
-                <ul className={styles.Menu}>
+                <ul className={styles.Menu} ref={menuRef}>
                     <li className={styles.gap}></li>
                     {items.map((item,index) => <MenuItem color={item.color} key={index} itemIndex={index}>{ item.name }</MenuItem>)}
                 </ul>
@@ -58,9 +69,3 @@ export default function Dropdown(props) {
 }
 
 
-function openClose(open){
-    let menu = document.getElementsByClassName(styles.Menu)[0];
-    let translate = menu.clientHeight;
-    translate = open ? 0 : translate;
-    menu.style.transform = `translateY(${translate}px)`;
-}
