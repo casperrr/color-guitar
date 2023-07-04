@@ -11,28 +11,20 @@ let scales = [
     {name:'IF THIS WORKS',color:'#10ff0f'},
     
 ];
-const getNotes = () => {
-    let array = [];
-    let notes = new Notes();
-    notes.notesArr.map((note)=>{
-        array.push({name:note.noteName, color: note.color})
-    });
-    return array;
-}
-const notes = getNotes();
 
-export default function Controls(){
+
+export default function Controls(props){
     // console.log(notes)
 
     return(
         <div className={styles.controls_container}>
             <div className={styles.control_container}>
                 <h3>Scale:</h3>
-                <Dropdown title="Choose a Scale" options={scales}/>
+                <Dropdown title="Choose a Scale" options={props.controller.scales} controller={props.controller}/>
             </div>
             <div className={styles.control_container}>
                 <h3>Root:</h3>
-                <Dropdown title="Choose a Root" options={notes}/>
+                <Dropdown title="Choose a Root" options={props.controller.noteOptions} controller={props.controller}/>
             </div>
         </div>
     );
