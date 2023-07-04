@@ -13,9 +13,9 @@ export default class MainController{
         this.canvases = [];
         this.notes = new Notes();
         this.scales = new Options([
-            {name:'Chromatic',color:'#ff0000'},
-            {name:'Major',color:'#ffe50f'},
-            {name:'Minor',color:'#10ff0f'},
+            {name:'Chromatic',color:'#ff0000',rules:[1,1,1,1,1,1,1,1,1,1,1,1]},
+            {name:'Major',color:'#ffe50f',rules:[2,2,1,2,2,2,1]},
+            {name:'Minor',color:'#10ff0f',rules:[2,1,2,2,1,2,2]},
         ]);
         let arr = [];
         this.notes.notesArr.map((note)=>{
