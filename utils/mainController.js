@@ -16,13 +16,13 @@ export default class MainController{
             {name:'Chromatic',color:'#ff0000',rules:[1,1,1,1,1,1,1,1,1,1,1,1]},
             {name:'Major',color:'#ffe50f',rules:[2,2,1,2,2,2,1]},
             {name:'Minor',color:'#10ff0f',rules:[2,1,2,2,1,2,2]},
-        ]);
+        ],1);
         let arr = [];
         this.notes.notesArr.map((note)=>{
             arr.push(
                 {name:note.noteName,color:note.color}
             )});
-        this.noteOptions = new Options(arr);
+        this.noteOptions = new Options(arr,0);
     }
 
     addCanvas(canvas,script){
@@ -37,7 +37,7 @@ export default class MainController{
 
     runScripts(){
         this.canvases.forEach((canvas)=>{
-            canvas.obj = new canvas.script(canvas.canvas,canvas.c);
+            canvas.obj = new canvas.script(canvas.canvas,canvas.c,this);
         });
     }
 

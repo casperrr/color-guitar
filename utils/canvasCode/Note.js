@@ -13,16 +13,20 @@ let accidentals = {
             this.noteNumber = noteNumber;
             this.noteName = oneDAllNotes[noteNumber];
             this.accidental = accidental;
-            this.color = "hsl("+deg+", 100%, 43%)";
+            this.color = "hsla("+deg+", 99%, 43%, 100%)";
             this.canvas = canvas;
             // 0 = Square, 1 = Circle
             this.shape = (noteNumber+1)%2 == 0 ? 0 : 1;
         }
     
-        drawNote(c,x,y,w,h) {
+        drawNote(c,x,y,w,h,a) {
     
-            //draw colour 
-            c.fillStyle = this.color;
+            //draw colour
+            if(a != null){
+                c.fillStyle = this.color.replace('100%',a);
+            }else{
+                c.fillStyle = this.color;
+            }
             if(this.shape == 1){
                 c.beginPath();
                 c.rect(x,y,w,h);

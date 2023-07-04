@@ -3,11 +3,12 @@ import Notes from '@/utils/canvasCode/Notes';
 
 export default class CircleOfFiths{
 
-    constructor(canvas,c){
+    constructor(canvas,c,options){
         this.notes = new Notes(canvas);
         this.noteOrder =[];
         this.canvas = canvas;
         this.c = c;
+        this.options = options;
         this.canvasWidth = 400;
         this.radius = this.canvasWidth*0.375;
         this.noteSize = this.canvasWidth*0.1125;
