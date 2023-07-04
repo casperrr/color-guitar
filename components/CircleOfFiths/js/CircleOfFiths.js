@@ -3,15 +3,17 @@ import Notes from '@/utils/canvasCode/Notes';
 
 export default class CircleOfFiths{
 
-    constructor(canvas){
+    constructor(canvas,c){
         this.notes = new Notes(canvas);
         this.noteOrder =[];
         this.canvas = canvas;
+        this.c = c;
         this.canvasWidth = 400;
         this.radius = this.canvasWidth*0.375;
         this.noteSize = this.canvasWidth*0.1125;
         
         this.#init();
+        this.drawCircle(this.c)
     }
 
     drawCircle(c,r2){

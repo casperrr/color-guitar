@@ -1,27 +1,37 @@
-
-import Fretboard from '@/components/Fretboard/Fretboard';
+"use client";
 import styles from './homePage.module.css';
+import Fretboard from '@/components/Fretboard/Fretboard';
 import CircleOfFiths from '@/components/CircleOfFiths/CircleOfFiths';
 import ChromaticCircle from '@/components/ChromaticCircle/ChromaticCircle';
 import Controls from '@/components/Controls/Controls';
+// import Main from '@/utils/mainController';
+import MainController from '@/utils/mainController';
+import { useEffect , useRef } from 'react';
 
 export default function Home() {
+
+  let controller = new MainController();
+
+  useEffect(() => {
+    controller.runScripts();
+    console.log(controller);
+  },[Fretboard, CircleOfFiths, ChromaticCircle])
+
+
   return (
     <main className={styles.main_container}>
       <div className={styles.fretboard}>
-        <Fretboard/>
+        <Fretboard controller={controller}/>
       </div>
       <div className={styles.circleFiths}>
-        <CircleOfFiths/>
+        <CircleOfFiths controller={controller}/>
       </div>
       <div className={styles.circleChrom}>
-        <ChromaticCircle />
+        <ChromaticCircle controller={controller}/>
       </div>
       <div className={styles.controls}>
         <Controls/>
       </div>
-      {/* <div className={styles.circle_container}>
-      </div> */}
     </main>
   )
 }
