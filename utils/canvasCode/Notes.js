@@ -8,11 +8,9 @@ I want this to be inbetween the note and circle of fiths classes
 export default class Notes {
     constructor(canvas){
         this.notesArr = [];
+        this.scale = null;
+        this.root = null;
         this.initArray(canvas);
-
-        
-        
-        
     }
 
     initArray(canvas){
