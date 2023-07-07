@@ -45,6 +45,10 @@ export default class FretBody{
 
     }
 
+    drawBody(){
+        
+    }
+
     addFret(c,fretPos,notePos,number){
 
         c.strokeStyle = '#ffffff';
