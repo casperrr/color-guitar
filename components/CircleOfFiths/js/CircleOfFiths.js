@@ -14,8 +14,9 @@ export default class CircleOfFiths{
         // this.noteSize = this.canvasWidth*0.1125;
         this.pos = {
             radius: this.canvasWidth*0.375,
+            linePointOffset: 10,
             noteSize: this.canvasWidth*0.1125,
-
+            
         }
         
         this.#init();
@@ -33,6 +34,7 @@ export default class CircleOfFiths{
 
     draw(){
         this.drawCircle(this.c);
+        this.connectNotes();
     }
 
     drawCircle(c,r2){
@@ -47,6 +49,14 @@ export default class CircleOfFiths{
             let x = Math.cos(angle)*otherRad+centerOff.x;
             let y = Math.sin(angle)*otherRad+centerOff.y;
             this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.pos.noteSize,this.pos.noteSize);
+        }
+    }
+
+    connectNotes(){
+
+        
+        for(let i = 0; i < 12; i++){
+
         }
     }
 
