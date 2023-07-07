@@ -10,11 +10,25 @@ export default class CircleOfFiths{
         this.c = c;
         this.options = options;
         this.canvasWidth = 400;
-        this.radius = this.canvasWidth*0.375;
-        this.noteSize = this.canvasWidth*0.1125;
+        // this.radius = this.canvasWidth*0.375;
+        // this.noteSize = this.canvasWidth*0.1125;
+        this.pos = {
+            radius: this.canvasWidth*0.375,
+            noteSize: this.canvasWidth*0.1125,
+
+        }
         
         this.#init();
         this.drawCircle(this.c)
+
+        /* 
+
+        I could have an array of objects that have the x,y position of the notes with a positions of wherre the line connects and the interval could be drawn or something.
+
+
+
+
+        */
     }
 
     draw(){
@@ -22,28 +36,28 @@ export default class CircleOfFiths{
     }
 
     drawCircle(c,r2){
-        let centerOff = {x:(this.canvas.width/2)-(this.noteSize/2), y:(this.canvas.height/2)-(this.noteSize/2)}
+        let centerOff = {x:(this.canvas.width/2)-(this.pos.noteSize/2), y:(this.canvas.height/2)-(this.pos.noteSize/2)}
         let angle = 0;
-        let otherRad = this.radius;
+        let otherRad = this.pos.radius;
         c.clearRect(0,0,this.canvas.width,this.canvas.height);
         // console.log(this.noteOrder)
         for (let i = 0; i < 12; i++) {
             angle = (i-3) * (Math.PI*2)/12;
-            if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.radius;
+            if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.pos.radius;
             let x = Math.cos(angle)*otherRad+centerOff.x;
             let y = Math.sin(angle)*otherRad+centerOff.y;
-            this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.noteSize,this.noteSize);
+            this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.pos.noteSize,this.pos.noteSize);
         }
     }
 
     animateToChromatic(c){
         // Using lerp gives only 1 way easing.
-        let otherRad = this.radius;
+        let otherRad = this.pos.radius;
         let animationLoop = setInterval(()=>{
             
             this.drawCircle(c,otherRad);
-            otherRad = (this.lerp(otherRad,-this.radius,0.02));
-            if(-this.radius == Math.floor(otherRad)){
+            otherRad = (this.lerp(otherRad,-this.pos.radius,0.02));
+            if(-this.pos.radius == Math.floor(otherRad)){
                 console.log("done!");
                 clearInterval(animationLoop);
             }
@@ -52,7 +66,7 @@ export default class CircleOfFiths{
 
     animateToChromaticV2(c){
         // Using cos to animate gives ease in and out.
-        let otherRad = this.radius;
+        let otherRad = this.pos.radius;
         let angle = 0;
         let n = 50;
         let increment = (Math.PI)/n;
@@ -63,9 +77,9 @@ export default class CircleOfFiths{
         let animationLoop = setInterval(() => {
             this.drawCircle(c,otherRad);
             angle += increment;
-            otherRad = Math.cos(angle)*this.radius;
+            otherRad = Math.cos(angle)*this.pos.radius;
             // console.log(otherRad);
-            if(-this.radius == Math.floor(otherRad)){
+            if(-this.pos.radius == Math.floor(otherRad)){
                 console.log("done");
                 clearInterval(animationLoop);
             }
