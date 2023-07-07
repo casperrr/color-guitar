@@ -17,7 +17,6 @@ export default class FretBoard {
         this.fretNum = 12 +(1);
         this.strings = [];
         this.body = new FretBody(this.canvas, this.canvasDim,this.fretNum);
-        // this.notes = new Notes(canvas);
         this.notes = notes;
 
         this.tunings = [
@@ -70,16 +69,10 @@ export default class FretBoard {
                 this.body.fretArray[0].fretPos,
                 this.strings[i].yPos
             );
-            // this.c.moveTo(
-            //     this.canvasDim.x-this.fretboardDim.width,
-            //     this.strings[i].yPos
-            // );
             this.c.lineTo(
                 this.body.fretArray[this.fretNum-1].fretPos,
                 this.strings[i].yPos
             );
-            // this.c.lineTo(this.fretboardDim.width,
-            // this.strings[i].yPos);
             this.c.stroke();
         }
     }

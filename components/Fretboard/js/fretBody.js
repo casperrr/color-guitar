@@ -10,9 +10,6 @@ export default class FretBody{
         this.fretMarkers = [1,3,5,7,9,12];
         this.fretArray = [];
 
-        // initialise.fretArray with an array of objects that contain the position of where to draw and stuff like frets and fretmarker that call like functions with draw
-        
-
     }
 
     makeBody(c){
@@ -37,27 +34,11 @@ export default class FretBody{
             this.canvasDim.y-this.fretboardDim.height,
             interval*(this.fretNum-1),
             this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
-        // c.rect(this.canvasDim.x-this.fretboardDim.width,this.canvasDim.y-this.fretboardDim.height,this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width),this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
         c.stroke();
         c.closePath();
 
         return this.fretboardDim;
 
-    }
-
-    drawBody(c){
-        let interval = (this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width))/this.fretNum+1;
-        c.strokeStyle = '#ffffff';
-        c.lineWidth = 3;
-        c.beginPath();
-        c.rect(
-            interval*(1)+(this.canvasDim.x-this.fretboardDim.width),
-            this.canvasDim.y-this.fretboardDim.height,
-            interval*(this.fretNum-1),
-            this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
-        // c.rect(this.canvasDim.x-this.fretboardDim.width,this.canvasDim.y-this.fretboardDim.height,this.fretboardDim.width-(this.canvasDim.x-this.fretboardDim.width),this.fretboardDim.height-(this.canvasDim.y-this.fretboardDim.height));
-        c.stroke();
-        c.closePath();
     }
 
     addFret(c,fretPos,notePos,number){
