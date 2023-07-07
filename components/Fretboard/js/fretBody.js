@@ -44,6 +44,7 @@ export default class FretBody{
     addFret(c,fretPos,notePos,number){
 
         c.strokeStyle = '#ffffff';
+        c.fillStyle = '#ffffff99';
         c.lineWidth = 2;
         c.beginPath();
         c.moveTo(fretPos,this.canvasDim.y-this.fretboardDim.height);
@@ -52,7 +53,7 @@ export default class FretBody{
         c.closePath();
 
         if(this.fretMarkers.includes(number)){
-            let rad = 10;
+            let rad = 7.5;
             c.beginPath();
             c.arc(notePos,
                 this.canvasDim.y/2,
@@ -62,7 +63,7 @@ export default class FretBody{
                 );
             c.lineWidth=1;
             c.closePath();
-            c.stroke();
+            c.fill();
         }
 
         return {
