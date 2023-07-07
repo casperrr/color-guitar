@@ -34,9 +34,12 @@ export default class FretBoard {
     }
 
     draw(){
-        this.c.clearRect(0,0,this.canvasDim.width,this.canvasDim.height);
+        this.c.clearRect(0,0,this.canvasDim.x,this.canvasDim.y);
+        this.body.makeBody(this.c);
+        this.drawStrings();
         this.drawNotes();
         this.drawFretNumbers();
+        // console.log("fretboard redrawn!")
     }
 
     makeStrings(){
@@ -49,9 +52,17 @@ export default class FretBoard {
                 this.tuning.tuning[(this.tuning.tuning.length-1)-i], //Tuning (open note)
                 yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2 // String y position
             ));
-            
+        }
+
+        this.drawStrings();
+    }
+
+    drawStrings(){
+
+        for(let i = 0; i < this.stringNum; i++){
             //draw string
             this.c.fillStyle = '#ffffff';
+            this.c.strokeStyle = '#ffffff';
             this.c.lineWidth = 4;
 
             this.c.beginPath();
@@ -70,11 +81,7 @@ export default class FretBoard {
             // this.c.lineTo(this.fretboardDim.width,
             // this.strings[i].yPos);
             this.c.stroke();
-            
         }
-
-        
-
     }
 
     drawNotes(){
