@@ -32,7 +32,7 @@ export default class CircleOfFiths{
             if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.radius;
             let x = Math.cos(angle)*otherRad+centerOff.x;
             let y = Math.sin(angle)*otherRad+centerOff.y;
-            this.notes.notesArr[this.noteOrder[i]].drawNote(c,x,y,this.noteSize,this.noteSize);
+            this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.noteSize,this.noteSize);
         }
     }
 

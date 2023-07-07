@@ -3,7 +3,7 @@ import FretBody from "./fretBody";
 import FretString from "./FretString";
 
 export default class FretBoard {
-    constructor(canvas,c,options,stringNum){
+    constructor(canvas,c,notes,stringNum){
         // stringNum === null? this.stringNum = 6: this.stringNum = stringNum;
         if(stringNum){
             this.stringNum = stringNum;
@@ -12,12 +12,13 @@ export default class FretBoard {
         }
         this.canvas = canvas;
         this.c = c;
-        this.options = options;
+        // this.options = options;
         this.canvasDim = {x:900,y:400};
         this.fretNum = 12 +(1);
         this.strings = [];
         this.body = new FretBody(this.canvas, this.canvasDim,this.fretNum);
-        this.notes = new Notes(canvas);
+        // this.notes = new Notes(canvas);
+        this.notes = notes;
 
         this.tunings = [
             {name: 'Standard',tuning: [4,9,2,7,11,4]}
@@ -79,56 +80,17 @@ export default class FretBoard {
     drawNotes(){
         let noteSize = 40;
         this.strings.forEach((string) => {
-            let scaleIndexes = [];
-            let sum = 0;
-            this.options.scales.options[this.options.scales.selected].rules.map((x)=>{
-                scaleIndexes.push(sum);
-                sum += x;
-            })
-            let scaleIndex = 0;
+
             for(let i = 0; i < this.fretNum; i++){
                 let index = (i+string.openNote)%12;
-                this.notes.notesArr[index].drawNote(
+                console.log(this.notes)
+                this.notes.notesArr[index].note.drawNote(
                     this.c,
                     (this.body.fretArray[i].notePos-(noteSize*0.5)),
-                    // (this.body.fretArray[i].notePos-(noteSize*0.5))-(this.body.fretArray[1].notePos-this.body.fretArray[0].notePos),
                     string.yPos-(noteSize*0.5),
                     noteSize,
-                    noteSize,
-                    ()=>{
-                        if((scaleIndexes[scaleIndex]+this.options.noteOptions.selected)%12 == index){
-                            scaleIndex++;
-                            return "100%";
-                        }else{
-                            return "20%";
-                        }
-                    }
-
-                    //Here is the place where you need an if statement for the alpha value.
-                )
-                // 2,2,1,2,2,2,1
-                // index = note so i=0 = index=4
-                // root = 4 (E)
-                // next note in scale = 4 + scale[i]
-                // 4,6,7,9,11,1,2,4
-                // [0, 2, 4, 5, 7, 9, 11]
-                // i = 0 and open note = 4
-                // index(open note) = 4
-                // root = 6 
-                // first note index = 0
-                // 0 + 6 = 6
-                // if index == 6 then color
-                /* 
-                root = 4
-                open note = 9
-                0 = 9
-                1= 10
-                2= 11
-                3= 0
-                I NEED A BETTER WAY TO DO THIS
-                */
-
-                
+                    noteSize
+                )       
             }
         });
 

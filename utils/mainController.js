@@ -37,7 +37,7 @@ export default class MainController{
 
     runScripts(){
         this.canvases.forEach((canvas)=>{
-            canvas.obj = new canvas.script(canvas.canvas,canvas.c,this);
+            canvas.obj = new canvas.script(canvas.canvas,canvas.c,this.notes);
         });
     }
 
