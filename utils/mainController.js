@@ -20,7 +20,7 @@ export default class MainController{
         let arr = [];
         this.notes.notesArr.map((note)=>{
             arr.push(
-                {name:note.noteName,color:note.color}
+                {name:note.note.noteName,color:note.note.color}
             )});
         this.noteOptions = new Options(arr,0);
     }

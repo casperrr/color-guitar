@@ -83,7 +83,6 @@ export default class FretBoard {
 
             for(let i = 0; i < this.fretNum; i++){
                 let index = (i+string.openNote)%12;
-                console.log(this.notes)
                 this.notes.notesArr[index].note.drawNote(
                     this.c,
                     (this.body.fretArray[i].notePos-(noteSize*0.5)),
