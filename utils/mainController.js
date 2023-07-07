@@ -22,7 +22,7 @@ export default class MainController{
             arr.push(
                 {name:note.note.noteName,color:note.note.color}
             )});
-        this.noteOptions = new Options(arr,0);
+        this.noteOptions = new Options(arr, 0);
     }
 
     addCanvas(canvas,script){
@@ -64,7 +64,7 @@ export default class MainController{
 class Options{
     constructor(options, initialOption){
         this.options = options;
-        this.selected = initialOption ? initialOption : null;
+        this.selected = initialOption === !null ? null : initialOption;
     }
 
     setSelected(selected){
