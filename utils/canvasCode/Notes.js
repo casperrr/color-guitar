@@ -48,10 +48,11 @@ export default class Notes {
         for(let i = 0; i < rules.length; i++){
             this.notesArr[index].note.inScale = true;
             for(let j = 1; j < rules[i]; j++){
-                index++;
+                index = (index+1)%12;
                 this.notesArr[index].note.inScale = false;
             }
-            index++;
+            index = (index+1)%12;
+
         }
     }
 }

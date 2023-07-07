@@ -28,6 +28,9 @@ let accidentals = {
             // }else{
             //     c.fillStyle = this.color;
             // }
+            if(this.inScale){
+
+            
             c.fillStyle = this.color;
             if(this.shape == 1){
                 c.beginPath();
@@ -56,7 +59,7 @@ let accidentals = {
                 c.font = `${Math.ceil(w*0.5333)}px sans-serif`;
                 c.fillText(this.noteName, x+w/2, y+h/2);
             }
-
+        }
         }
     }
     
