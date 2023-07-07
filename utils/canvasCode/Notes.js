@@ -40,18 +40,15 @@ export default class Notes {
         // 2,2,1,2,2,2,1
         let test = [2,2,1,2,2,2,1];
 
-        let counter = 0;
-        let scaleDeg = 0;
-        for(let i = this.root; i < 12+this.root; i++){
-            if(counter < test[scaleDeg]){
-                this.notesArr[i].inScale = false;
-                counter++;
-            }else if(counter == test[scaleDeg]){
-                this.notesArr.inScale = true;
-                counter = 0;
-                scaleDeg++;
+        
+        let index = this.root.noteNumber;
+        for(let i = 0; i < test.length; i++){
+            this.notesArr[index].note.inScale = true;
+            for(let j = 1; j < test[i]; j++){
+                index++;
+                this.notesArr[index].note.inScale = false;
             }
-            // console.log(this.notesArr[i].inScale);
+            index++;
         }
     }
 }
