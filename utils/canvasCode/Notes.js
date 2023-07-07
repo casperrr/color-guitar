@@ -25,7 +25,7 @@ export default class Notes {
             }
             this.notesArr[index] = (
                 {note: new Note(index,deg,canvas,accidental),
-                scaleDeg: 1}
+                scaleDeg: -1}
 
             );
             // this.notesArr[index] = new Note(index,deg,canvas,accidental);
@@ -40,19 +40,22 @@ export default class Notes {
 
 
         let rules = scale.rules;
-        // 2,2,1,2,2,2,1
-        let test = [2,2,1,2,2,2,1];
 
+        //Make it so it puts the scale degree in too!
 
         let index = this.root.noteNumber;
+        let degree = 0;
         for(let i = 0; i < rules.length; i++){
             this.notesArr[index].note.inScale = true;
+            this.notesArr[index].scaleDeg = degree;
             for(let j = 1; j < rules[i]; j++){
                 index = (index+1)%12;
                 this.notesArr[index].note.inScale = false;
+                this.notesArr[index].scaleDeg = -1;
             }
+            degree++;
             index = (index+1)%12;
-
+            
         }
     }
 }
