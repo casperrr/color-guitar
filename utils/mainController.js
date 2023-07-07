@@ -20,7 +20,7 @@ export default class MainController{
         let arr = [];
         this.notes.notesArr.map((note)=>{
             arr.push(
-                {name:note.noteName,color:note.color}
+                {name:note.note.noteName,color:note.note.color}
             )});
         this.noteOptions = new Options(arr,0);
     }
@@ -37,13 +37,24 @@ export default class MainController{
 
     runScripts(){
         this.canvases.forEach((canvas)=>{
-            canvas.obj = new canvas.script(canvas.canvas,canvas.c,this);
+            canvas.obj = new canvas.script(canvas.canvas,canvas.c,this.notes);
         });
     }
 
+
+    //Runs when the dropdown changes
     update(){
+        this.notes.setScaleRoot(
+            this.scales.options[this.scales.selected],
+            this.notes.notesArr[this.noteOptions.selected].note
+        );
+        console.log(this.notes)
+
         this.canvases.forEach((canvas) => {
+
+
             canvas.obj.draw();
+            
         });
     }
 
@@ -58,5 +69,6 @@ class Options{
 
     setSelected(selected){
         this.selected = selected;
+
     }
 }
