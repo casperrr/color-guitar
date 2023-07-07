@@ -36,15 +36,18 @@ export default class Notes {
     setScaleRoot(scale,root){
         this.scale = scale;
         this.root = root;
+        console.log(this.scale)
 
+
+        let rules = scale.rules;
         // 2,2,1,2,2,2,1
         let test = [2,2,1,2,2,2,1];
 
-        
+
         let index = this.root.noteNumber;
-        for(let i = 0; i < test.length; i++){
+        for(let i = 0; i < rules.length; i++){
             this.notesArr[index].note.inScale = true;
-            for(let j = 1; j < test[i]; j++){
+            for(let j = 1; j < rules[i]; j++){
                 index++;
                 this.notesArr[index].note.inScale = false;
             }

@@ -40,7 +40,8 @@ export default function Dropdown(props) {
         function handleSelect(e,selected){
             // console.log(e)
             setSelected(items[selected]);
-            props.options.selected = selected;
+            // props.options.selected = selected;
+            props.options.setSelected(selected);
             props.controller.update();
             console.log(props.controller)
             // console.log(selected)
