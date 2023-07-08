@@ -3,12 +3,13 @@ import Notes from '@/utils/canvasCode/Notes';
 
 export default class CircleOfFiths{
 
-    constructor(canvas,c,options){
-        this.notes = new Notes(canvas);
+    constructor(canvas,c,notes){
+        // this.notes = new Notes(canvas);
+        this.notes = notes
         this.noteOrder =[];
         this.canvas = canvas;
         this.c = c;
-        this.options = options;
+        // this.options = options;
         this.canvasWidth = 400;
         // this.radius = this.canvasWidth*0.375;
         // this.noteSize = this.canvasWidth*0.1125;
@@ -48,6 +49,7 @@ export default class CircleOfFiths{
             if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.pos.radius;
             let x = Math.cos(angle)*otherRad+centerOff.x;
             let y = Math.sin(angle)*otherRad+centerOff.y;
+            console.log(i)
             this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.pos.noteSize,this.pos.noteSize);
         }
     }
