@@ -2,8 +2,8 @@ import CircleOfFiths from "@/components/CircleOfFiths/js/CircleOfFiths";
 
 
 export default class ChromaticCircle extends CircleOfFiths {
-    constructor(canvas,c){
-        super(canvas,c);
+    constructor(canvas,c,notes){
+        super(canvas,c,notes);
         this.#init();
         this.drawCircle(this.c)
     }
