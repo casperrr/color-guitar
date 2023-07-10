@@ -1,0 +1,126 @@
+.dropdown{
+    position: relative;
+    width: 10rem;
+
+}
+
+.DropdownBtn{
+    position: relative;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #000000;
+    color: #ffffffcb;
+    z-index: 100;
+    border-style: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.644);
+}
+
+.DropdownBtn span {
+    margin-left: 0.7rem;
+    background-color: aqua;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    
+    transition: all 150ms ease-in-out;
+}
+.DropdownBtn:hover > span {
+    scale: 1.2;
+}
+
+
+
+.menuHider{
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    width: 100%;
+    height: 1000px;
+}
+
+
+.Menu{
+    position: absolute;
+    pointer-events: all;
+    left: 0;
+    /* top: 50%; */
+    list-style: none;
+    z-index: 1;
+    width: 100%;
+    background-color: #0f0f0f;
+    border-radius: 0px 0px 14px 14px;
+    bottom: 100%;
+    transition: transform 250ms ease;
+    box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.644);
+
+}
+
+
+
+.gap{
+    margin-bottom: 1.3rem;
+}
+
+.MenuItem {
+    display: flex;
+    padding: 0.1rem 0.6rem;
+    font-size: small;
+    font-weight: 200;
+    cursor: pointer;
+    pointer-events: all;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: all;
+}
+/* .MenuItem::after{
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: aqua;
+    right: 3%;
+    bottom: 0%;
+    height: 90%;
+    width: 0.1rem;
+} */
+
+.MenuItem div{
+    position: relative;
+    right: -7%;
+    /* border-radius: 0.05rem; */
+    background-color: aqua;
+    height: 1.25rem;
+    width: 0.1rem;
+    transition: all 100ms ease;
+}
+.MenuItem:hover > div{
+    width: 0.3rem;
+}
+.MenuItem:hover{
+    filter: brightness(1.3);
+}
+.MenuItem:hover > a{
+    scale: 1.1;
+}
+
+
+.MenuItem a{
+    color: #ffffffb9;
+    /* background-color: rgb(34, 34, 34); */
+    border-radius: 4px;
+    padding: 0rem 0.4rem;
+
+    transition: all 100ms ease;
+}
+
+.MenuItem:last-child{
+    margin-bottom: 0.4rem;
+}
+
+
