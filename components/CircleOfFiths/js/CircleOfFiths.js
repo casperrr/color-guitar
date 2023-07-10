@@ -72,8 +72,8 @@ export default class CircleOfFiths{
         for(let i = 0; i < 12; i++){
             index = (i+start)%12;
             if(this.notes.notesArr[index].scaleDeg > -1){
-                console.log(this.notes.notesArr[index]);
-                console.log(this.noteOrder[index]);
+                // console.log(this.notes.notesArr[index]);
+                // console.log(this.noteOrder[index]);
                 let pos = this.polarToCart(this.noteOrder[index],this.pos.radius*this.pos.linePointOffset);
 
                 if(i == 0) rootPos = pos;
