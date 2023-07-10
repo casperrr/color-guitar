@@ -11,7 +11,7 @@ const CircleOfFiths = (props) => {
 
     useEffect(() => {
         props.controller.addCanvas(canvasRef.current,2);
-    },[canvasRef])
+    },[canvasRef, props.controller])
 
   // let test = new CircleOfFiths()
 

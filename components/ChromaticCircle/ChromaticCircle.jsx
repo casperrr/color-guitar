@@ -10,7 +10,7 @@ const ChromaticCircle = (props) => {
 
   useEffect(() => {
       props.controller.addCanvas(canvasRef.current,1);
-  },[canvasRef])
+  },[canvasRef,props.controller])
 
   return (
     <div className='canvas_container'>
