@@ -1,3 +1,4 @@
+"use client";
 import React, {useRef, useEffect} from 'react'
 // import Canvas from '@/components/Canvas/Canvas'
 // import { handleCanvasClick } from '@/utils/canvasCode/CanvasCode';
