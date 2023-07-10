@@ -6,7 +6,7 @@ import ChromaticCircle from '@/components/ChromaticCircle/ChromaticCircle';
 import Controls from '@/components/Controls/Controls';
 // import Main from '@/utils/mainController';
 import MainController from '@/utils/mainController';
-import { useEffect , useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function Home() {
 
@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     controller.runScripts();
     console.log(controller);
-  },[Fretboard, CircleOfFiths, ChromaticCircle])
+  },[Fretboard, CircleOfFiths, ChromaticCircle, controller])
 
 
   return (
