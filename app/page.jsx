@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     controller.runScripts();
     console.log(controller);
-  },[ controller])
+  })
 
 
   return (
