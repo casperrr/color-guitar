@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 // import Canvas from "@/components/Canvas/Canvas";
 // import canvas from "../Canvas/js/Canvas";
