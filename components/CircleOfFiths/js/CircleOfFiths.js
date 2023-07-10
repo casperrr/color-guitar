@@ -15,7 +15,7 @@ export default class CircleOfFiths{
         // this.noteSize = this.canvasWidth*0.1125;
         this.pos = {
             radius: this.canvasWidth*0.375,
-            linePointOffset: 10,
+            linePointOffset: 0.75,
             noteSize: this.canvasWidth*0.1125,
             
         }
@@ -34,7 +34,10 @@ export default class CircleOfFiths{
     }
 
     draw(){
+        this.c.fill();
+        this.c.clearRect(0,0,this.canvasWidth,this.canvasWidth);
         this.drawCircle(this.c);
+        // this.c.fill();
         this.connectNotes();
     }
 
@@ -49,15 +52,54 @@ export default class CircleOfFiths{
             if(r2 != null)(i+1)%2 == 0 ? otherRad = r2:otherRad = this.pos.radius;
             let x = Math.cos(angle)*otherRad+centerOff.x;
             let y = Math.sin(angle)*otherRad+centerOff.y;
-            console.log(i)
+            // console.log(i)
             this.notes.notesArr[this.noteOrder[i]].note.drawNote(c,x,y,this.pos.noteSize,this.pos.noteSize);
+            // c.stroke();
+            // c.fill();
         }
     }
 
-    connectNotes(){    
+    connectNotes(){
+        this.c.fillStyle = '#ffffff00';
+        this.c.strokeStyle = '#ffffff00';
+        this.c.fill();
+        this.c.stroke();
+
+        this.c.save();
+
+        this.c.translate(this.canvasWidth/2,this.canvasWidth/2);
+
+        this.c.beginPath();
+        
+        let start = this.notes.root.noteNumber;
+        let index = start;
         for(let i = 0; i < 12; i++){
-            
+            index = (i+start)%12;
+            if(this.notes.notesArr[index].scaleDeg > -1){
+                console.log(this.notes.notesArr[index]);
+                console.log(this.noteOrder[index]);
+                let pos = this.polarToCart(i,this.pos.radius*this.pos.linePointOffset);
+
+                if(i > 0) this.c.lineTo(pos.x,pos.y);
+                if(i < 11) this.c.moveTo(pos.x,pos.y);
+            } 
+
         }
+        this.c.strokeStyle = '#ffffff';
+        this.c.stroke();
+        this.c.closePath();
+
+        this.c.restore();
+    }
+
+    polarToCart(index, radius){
+        // let centerOff = {x:(this.canvas.width/2)-(this.pos.noteSize/2), y:(this.canvas.height/2)-(this.pos.noteSize/2)}
+        let angle = (index-3) * (Math.PI*2)/12;
+        let pos = {
+            x:Math.cos(angle)*radius,
+            y:Math.sin(angle)*radius
+        }
+        return pos;
     }
 
     animateToChromatic(c){
