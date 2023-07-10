@@ -62,10 +62,8 @@ export default class CircleOfFiths{
     connectNotes(){
         this.c.fillStyle = '#ffffff00';
         this.c.strokeStyle = '#ffffff00';
-        this.c.fill();
-        this.c.stroke();
-
         this.c.save();
+
 
         this.c.translate(this.canvasWidth/2,this.canvasWidth/2);
 
