@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     controller.runScripts();
     console.log(controller);
-  },[Fretboard, CircleOfFiths, ChromaticCircle, controller])
+  },[ controller])
 
 
   return (
