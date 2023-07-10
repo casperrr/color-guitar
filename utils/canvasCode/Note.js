@@ -9,19 +9,28 @@ let accidentals = {
 //  ♯   ♭
     export default class Note{
     
-        constructor(noteNumber,deg,canvas,accidental) {
+        constructor(noteNumber,deg,accidental) {
             this.noteNumber = noteNumber;
             this.noteName = oneDAllNotes[noteNumber];
             this.accidental = accidental;
-            this.color = "hsl("+deg+", 100%, 43%)";
-            this.canvas = canvas;
+            this.color = "hsla("+deg+", 99%, 43%, 100%)";
+            this.inScale = true;
+            // this.canvas = canvas;
             // 0 = Square, 1 = Circle
             this.shape = (noteNumber+1)%2 == 0 ? 0 : 1;
         }
     
-        drawNote(c,x,y,w,h) {
+        drawNote(c,x,y,w,h,a) {
     
-            //draw colour 
+            //draw colour
+            // if(a != null){
+            //     c.fillStyle = this.color.replace('100%',a);
+            // }else{
+            //     c.fillStyle = this.color;
+            // }
+
+
+            
             c.fillStyle = this.color;
             if(this.shape == 1){
                 c.beginPath();

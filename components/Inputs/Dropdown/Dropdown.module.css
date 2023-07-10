@@ -1,0 +1,80 @@
+.dropdown{
+    position: relative;
+}
+
+.dropdownBtn{
+    background-color: #000000;
+    padding: 0.6rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    user-select: none;
+    /* position:relative; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.dropdownBtn p {
+    font-weight: 200;
+    font-size: 1rem;
+    padding-right: 1rem;
+    color: #ffffffc0;
+    /* position: relative; */
+    display: inline;
+}
+
+.dropdownBtn span {
+    font-weight: 300;
+    transition: transform ease-in-out 0.3s;
+}
+
+.dropdownBtn span:hover::after{
+    
+    transform: rotate(90deg);
+}
+
+.dropdownBtn span::after{
+    position: absolute;
+    font-weight: 300;
+    /* z-index: 100; */
+}
+
+
+.dropdownMenu{
+    position: absolute;
+    list-style: none;
+    top: 2.5rem;
+    background-color: #0c0c0c;
+    visibility: hidden;
+}
+
+.dropdownBtn:focus + .dropdownMenu {
+    visibility: visible;
+}
+
+.dropdownItem{
+    background-color: #111111;
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+}
+
+.dropdownItem a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 200;
+    padding: 0.3rem 1.5rem;
+}
+
+
+/* 
+
+pill shape dropdown with the options that scroll out and then like there is a drop shadow thats more like a glow thats over the options that uses a gradient of the rainbow scales.
+
+
+make the scale drop down menu like each color of the scale note ygm.
+if coding it in is a pain in the bum u could just use css variables or something or pass in the color to broooooooo just its easy to code im sure fuck it man thats what im doing im coding it.
+
+
+*/

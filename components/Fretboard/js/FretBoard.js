@@ -3,7 +3,7 @@ import FretBody from "./fretBody";
 import FretString from "./FretString";
 
 export default class FretBoard {
-    constructor(canvas,c,stringNum){
+    constructor(canvas,c,notes,stringNum){
         // stringNum === null? this.stringNum = 6: this.stringNum = stringNum;
         if(stringNum){
             this.stringNum = stringNum;
@@ -12,11 +12,12 @@ export default class FretBoard {
         }
         this.canvas = canvas;
         this.c = c;
+        // this.options = options;
         this.canvasDim = {x:900,y:400};
         this.fretNum = 12 +(1);
         this.strings = [];
         this.body = new FretBody(this.canvas, this.canvasDim,this.fretNum);
-        this.notes = new Notes(canvas);
+        this.notes = notes;
 
         this.tunings = [
             {name: 'Standard',tuning: [4,9,2,7,11,4]}
@@ -31,6 +32,15 @@ export default class FretBoard {
         this.drawFretNumbers();
     }
 
+    draw(){
+        this.c.clearRect(0,0,this.canvasDim.x,this.canvasDim.y);
+        this.body.makeBody(this.c);
+        this.drawStrings();
+        this.drawNotes();
+        this.drawFretNumbers();
+        // console.log("fretboard redrawn!")
+    }
+
     makeStrings(){
 
         let yPosInterval = this.fretboardDim.height/(this.stringNum+1);
@@ -41,9 +51,17 @@ export default class FretBoard {
                 this.tuning.tuning[(this.tuning.tuning.length-1)-i], //Tuning (open note)
                 yPosInterval*(i)+(this.canvasDim.y-yPosInterval*(this.stringNum-1))/2 // String y position
             ));
-            
+        }
+
+        this.drawStrings();
+    }
+
+    drawStrings(){
+
+        for(let i = 0; i < this.stringNum; i++){
             //draw string
             this.c.fillStyle = '#ffffff';
+            this.c.strokeStyle = '#ffffff';
             this.c.lineWidth = 4;
 
             this.c.beginPath();
@@ -51,38 +69,29 @@ export default class FretBoard {
                 this.body.fretArray[0].fretPos,
                 this.strings[i].yPos
             );
-            // this.c.moveTo(
-            //     this.canvasDim.x-this.fretboardDim.width,
-            //     this.strings[i].yPos
-            // );
             this.c.lineTo(
                 this.body.fretArray[this.fretNum-1].fretPos,
                 this.strings[i].yPos
             );
-            // this.c.lineTo(this.fretboardDim.width,
-            // this.strings[i].yPos);
             this.c.stroke();
-            
         }
-
-        
-
     }
 
     drawNotes(){
         let noteSize = 40;
         this.strings.forEach((string) => {
+
             for(let i = 0; i < this.fretNum; i++){
                 let index = (i+string.openNote)%12;
-                this.notes.notesArr[index].drawNote(
-                    this.c,
-                    (this.body.fretArray[i].notePos-(noteSize*0.5)),
-                    // (this.body.fretArray[i].notePos-(noteSize*0.5))-(this.body.fretArray[1].notePos-this.body.fretArray[0].notePos),
-                    string.yPos-(noteSize*0.5),
-                    noteSize,
-                    noteSize
-                )
-                
+                if(this.notes.notesArr[index].note.inScale){
+                    this.notes.notesArr[index].note.drawNote(
+                        this.c,
+                        (this.body.fretArray[i].notePos-(noteSize*0.5)),
+                        string.yPos-(noteSize*0.5),
+                        noteSize,
+                        noteSize
+                    )       
+                }
             }
         });
 
