@@ -68,6 +68,7 @@ export default class CircleOfFiths{
 
         let start = this.notes.root.noteNumber;
         let index = start;
+        let rootPos;
         for(let i = 0; i < 12; i++){
             index = (i+start)%12;
             if(this.notes.notesArr[index].scaleDeg > -1){
@@ -75,11 +76,13 @@ export default class CircleOfFiths{
                 console.log(this.noteOrder[index]);
                 let pos = this.polarToCart(this.noteOrder[index],this.pos.radius*this.pos.linePointOffset);
 
+                if(i == 0) rootPos = pos;
                 if(i > 0) this.c.lineTo(pos.x,pos.y);
                 if(i < 11) this.c.moveTo(pos.x,pos.y);
             } 
 
         }
+        this.c.lineTo(rootPos.x,rootPos.y);
         this.c.strokeStyle = '#ffffff';
         this.c.stroke();
         this.c.closePath();
